@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id='fragment'>
+        <li>test</li>
+        <li>test</li>
+    </ul>
+</body>
+<script>
+    let ul = document.getElementById('fragment');
+    //创建fragment
+    let fragment = document.createDocumentFragment();
+    let child;
+    while(child=ul.firstChild){//一个节点只能有一个父亲
+        fragment.appendChild(child)//先将child从ul中移除，添加为fragment的子节点
+    }
+    //更新fragment中所有li节点
+    Array.prototype.slice.call(fragment.childNodes).forEach(element => {
+        if(element.nodeType===1){//判断元素节点
+            element.textContent='123123'
+        }
+    });
+    //将fragment添加到ul
+    ul.appendChild(fragment)
+</script>
+</html>
