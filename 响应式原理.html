@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>123</div>
+</body>
+<script>
+    function observe(value,cb) {
+        Object.keys(value).forEach((key)=>defineReactive(value,key,value[key],cb))
+    }
+
+    function defineReactive(obj,key,value,cb) {
+        Object.defineProperty(obj,key,{
+            enumerable:true,
+            configurable:true,
+            get:()=>{
+                return value
+            },
+            set:(newVal)=>{
+                value = newVal
+                cb() 
+            }
+        })
+        
+    }
+
+    function _proxy(data) {
+        const that = this;
+        Object.keys(data).forEach((key)=>{
+            Object.defineProperty(that,key,{
+                enumerable:true,
+                configurable:true,
+                get:()=>{
+                    return that._data[key]
+                },
+                set:(val)=>{
+                    that._data[key] = val
+                }
+            })
+        })
+    }
+
+    class Vue {
+        constructor(options){
+            this._data = options.data;
+            observe(this._data,this.render)
+            _proxy.call(this,options.data)
+        }
+        render = () => {
+            var app = document.getElementById('app');
+            app.innerHTML = this._data.text
+        }
+    }
+
+    
+    var app = new Vue({
+        id:'#app',
+        data:{
+            text:'string'
+        }
+    })
+
+    app.text = 'sdfa'
+    setTimeout(()=>{
+        app.text = 'aaaaa'
+    },1000)
+</script>
+</html>

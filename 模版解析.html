@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='./lib/compile.js'></script>
+    <script src='./lib/mvvm.js'></script>
+    <script src='./lib/observer.js'></script>
+    <script src='./lib/watcher.js'></script>
+</head>
+<body>
+    <div id='test'>
+        <p>{{name}}</p>
+    </div>
+</body>
+<script>
+    const vm = new MVVM({
+        el:'#test',
+        data:{
+            name:'123123'
+        }
+    })
+</script>
+</html>
