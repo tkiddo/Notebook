@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <div id='content'></div>
+        <div id = 'text2'></div>
+        <button id = 'btn'>change</button>
+    </div>
+</body>
+<script>
+
+    
+    class Vue{
+        constructor(options){
+            this._data = options.data
+            // this.render()
+            observe(this._data,this.render)
+            _proxy.call(this,this._data)
+            let watcher = new Watcher(this,this.render)
+            Dep.target = null;
+        }
+        render = () => {
+            console.log('render')
+            var appNode = document.getElementById('content')
+            appNode.innerHTML = this._data.text
+            // var textNode = document.getElementById('text2')
+            // textNode.innerHTML = this._data.text2
+        }
+    }
+
+    class Dep{
+        constructor(){
+            this.subs = []
+        }
+        addSub=(sub)=>{
+            this.subs.push(sub)
+        }
+        notify=()=>{
+            this.subs.forEach(sub=>{
+                sub.update()
+            })
+        }
+    }
+
+    class Watcher{
+        constructor(vm,cb){
+            this.cb = cb;
+            this.vm = vm;
+            Dep.target = this;
+            this.cb.call(this.vm)
+        }
+
+        update = ()=>{
+            this.cb.call(this.vm)
+        }
+    }
+    
+    function observe(data) {
+        Object.keys(data).forEach(key=>{
+            defineReactive(data,key,data[key])
+        })
+    }
+
+    function defineReactive(obj,key,val) {
+        var dep = new Dep()
+        Object.defineProperty(obj,key,{
+            enumerable:true,
+            configurable:true,
+            get:()=>{
+                if(Dep.target){
+                    dep.addSub(Dep.target)
+                }
+                return val
+            },
+            set:(newVal)=>{
+                val = newVal;
+                dep.notify()
+            }
+        })
+    }
+
+    function _proxy(data) {
+        var vm = this;
+        Object.keys(data).forEach(key=>{
+            Object.defineProperty(vm,key,{
+                enumerable:true,
+                configurable:true,
+                get:()=>{
+                    return data[key]
+                },
+                set:(newVal)=>{
+                    data[key] = newVal;
+                }
+            })
+        })
+    }
+
+    
+
+    var app = new Vue({
+        el:'#app',
+        data:{
+            text:'1234',
+            text2:'11111'
+        }
+    })
+    
+
+    var btn = document.getElementById('btn');
+    btn.addEventListener('click',()=>{
+        app.text = '54445'
+    })
+    
+</script>
+</html>

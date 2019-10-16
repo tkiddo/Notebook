@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* 发布订阅模式指的是希望接收通知的对象（Subscriber）基于一个主题通过自定义事件订阅主题，被激活事件的对象（Publisher）通过发布主题事件的方式通知各个订阅该主题的 Subscriber 对象。 */
+    let pubSub = {
+        subs: [],
+        subscribe(key, fn) {
+            if (!this.subs[key]) {
+                this.subs[key] = []
+            }
+            this.subs[key].push(fn)
+        },
+        publish(...arg) {
+            let args = arg;
+            let key = args.shift();
+            let fns = this.subs[key];
+
+            if (!fns || fns.length <= 0) return;
+            fns.map(item => {
+                item(args)
+            })
+        },
+        unSubscribe(key) {
+            delete this.subs[key]
+        }
+    }
+
+    //测试
+    pubSub.subscribe('name', name => {
+        console.log(`your name is ${name}`);
+    })
+    pubSub.subscribe('gender', gender => {
+        console.log(`your name is ${gender}`);
+    })
+    pubSub.publish('name', 'leaf333');  // your name is leaf333
+    pubSub.publish('gender', '18');  // your gender is 18
+    console.log(Object.prototype.toString.call(pubSub.subs))
+
+    var a = []
+    a['id'] = 1;
+    a['name'] = 'k';
+    a[0] = 1;
+    console.log(a)
+    for (let key of a.keys()) {
+        console.log(key); // expected output: 0 1 2
+    }
+</script>
+
+</html>
