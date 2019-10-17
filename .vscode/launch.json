@@ -9,7 +9,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080/响应式原理2.html",
+            "url": "http://localhost:8080/闭包.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
