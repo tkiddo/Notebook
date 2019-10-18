@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>关于赋值和内存的问题</title>
+</head>
+<body>
+    <!-- 
+        问题:var a = xxx ,a内存中保存的是什么
+            *xxx是基本数据，保存的就是这个数据
+            *xxx是对象，保存的是对象的地址值
+            *xxx是一个变量，保存的xxx的内存内容（可能是基本数据，也可能是地址值）
+    -->
+
+    <!--
+        关于引用变量赋值的问题
+            *2个引用变量指向同一个对象，通过一个变量的修改对象内部数据，另一个变量看到的是修改之后的数据
+            *2个引用变量指向同一个对象，让其中一个变量指向另一个引用变量，另一个变量依然指向前一个对象
+    -->
+</body>
+<script>
+    var obj1 = {name:'tom'}
+    var obj2 = obj1;//obj1内存的内容赋值给obj2，obj1中内容是地址值
+    obj1.name = 'jack'
+    console.log(obj1.name,obj2.name) //jack,jack
+
+    function fn(obj){ 
+        obj.name = 'king'
+    }
+    fn(obj1) //实参obj1赋值给形参obj，obj1中存的是地址值
+    /* 
+    内部执行流程
+    obj1 = {name:'tom'}
+    obj = obj1
+    obj.name='king' */
+    console.log(obj1.name,obj2.name)//king,king
+
+    var a = {age:12}
+    var b = a;
+    a = {name:'BOB',age:13} //
+    b.age = 15
+    console.log(b,a)
+
+
+    function fn2(obj){
+        obj = {age:15}
+    }
+    fn2(a)
+    /*
+    内部执行流程 
+    a={name:"BOB",age:13}
+    obj=a
+    obj={age:15} */
+    console.log(a.age)
+</script>
+</html>

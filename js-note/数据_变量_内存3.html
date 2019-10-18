@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        问题：在js中调用函数是传递变量参数是，是值传递还是引用传递
+            *都是值(基本/地址值)传递
+    -->
+
+    <!-- 
+        js引擎如何内存管理
+        1.内存生命空间
+            *分配小内存空间，得到它的使用权
+            *存储数据，可以反复进行操作
+            *释放小内存空间
+        2.释放内存
+            *局部变量:函数执行完自动释放
+            *对象:成为垃圾对象》垃圾回收器回收
+    -->
+</body>
+<script>
+    var a = 3
+    function fn(n){
+        n = n + 1
+    }
+    fn(a)
+    /* 
+    a = 3
+    n = a 
+    n = n + 1*/
+    console.log(a)
+
+    var obj = {name:'tom'}
+    function fn2(a){
+        console.log(a.name)
+    }
+    fn2(obj)
+    /* 
+    obj = {name:'tom'} obj存的是地址值
+    a = obj 值传递
+     */
+
+    function name(params) {
+        var b = {}
+    }
+
+    fn()//b在函数执行完释放。对象在之后某个时间成为垃圾对象，由垃圾回收器回收
+
+    
+</script>
+</html>

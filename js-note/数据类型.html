@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/* 
+1.数据类型分类
+    基本（值）类型:
+        *String
+        *Number
+        *boolean:true,false
+        *undefined:undefined
+        *null:null
+    对象（引用）类型
+        *Object:任意对象 
+        *Function：一种特别的对象，可以执行
+        *Array：一种特别的对象（数值下标属性）
+2.怎么判断
+    *typeof:可以判断undefined，number，boolean，string,function,不能判断null和object，array和object
+    *instance of :判断对象的具体类型
+    *===:可以判断undefined，null
+ */
+
+var a;
+
+//typeof 返回数据类型的字符串表达
+console.log(a,typeof a,undefined === "undefined",typeof a === "undefined",a === undefined) //undefined,"undefined",false,true,true
+
+a=3;
+console.log(typeof a === "number")//true
+
+a=null
+console.log(typeof a ,a===null) //"object",true
+
+//对象
+var b1 = {
+    b2:[1,'abc',console.log],
+    b3:function(){
+        console.log('b3')
+    }
+}
+
+console.log(b1 instanceof Object,b1.b2 instanceof Array,b1.b3 instanceof Function)//true,true,true
+console.log(typeof b1.b3 === 'function')//true
+console.log(b1.b2[2] instanceof Function)//true
+
+/* 
+1.undefined,null的区别
+    *unfriend代表定义未赋值
+    *null代表定义并赋值，只是值为null
+
+2.什么时候给变量赋值为null
+    *初始赋值，表明赋值为对象
+    *结束前，让对象成为垃圾对象，被垃圾回收器回收
+
+3.严格区别变量类型和数据类型
+    *数据的类型
+        *基本类型
+        *对象类型
+    *变量的类型（变量内存值的类型）
+        *基本类型：保存的就是基本类型的数据
+        *引用类型：保存的是地址值
+*/
+
+var obj = null //初始赋值为null，表明将要赋值为对象
+obj = ['ds']
+//最后释放内存
+obj = null //让obj指向的对象成为垃圾对象（被垃圾回收器回收）
+
+
+var c = {}
+
+
+
+</script>
+</html>
+
+
+
+
+
+
+
