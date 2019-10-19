@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.什么是回调函数
+            *你定义的
+            *你没有调用
+            *但最终执行了
+        2.常见的回调函数
+            *dom事件
+            *定时器
+            *ajax请求
+            *生命周期
+     -->
+     <button id='btn'>点击</button>
+</body>
+<script>
+    document.getElementById('btn').onclick=function(){
+        alert(this.innerHTML)
+    }
+    
+    //定时器
+    setTimeout(function(){
+        alert('click')
+    },2000)
+</script>
+</html>
