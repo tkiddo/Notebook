@@ -9,7 +9,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080/闭包.html",
+            "url": "http://localhost:8080/js-note/函数高级/闭包/闭包理解.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
