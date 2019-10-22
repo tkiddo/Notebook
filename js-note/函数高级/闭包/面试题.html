@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//题一
+var name = 'the window'
+var object = {
+    name:'object',
+    getNameFun:function(){
+        return function(){
+            return this.name
+        }
+    }
+}
+console.log(object.getNameFun()()) //the window
+
+//题二
+var name2 = 'the window'
+var object2 = {
+    name2:'object',
+    getNameFun:function(){
+        var that = this
+        return function(){
+            return that.name2
+        }
+    }
+}
+console.log(object2.getNameFun()()) //object
+</script>
+</html>
