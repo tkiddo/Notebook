@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Person(name) {
+        this.name = name
+    }
+    Person.prototype.setName = function (name) {
+        this.name = name
+    }
+    function Student(name, age) {
+        Person.call(this, name)//为了得到属性
+        this.age = age
+    }
+    Student.prototype = new Person()//为了能看到父类型的方法
+    Student.prototype.constructor = Student
+    Student.prototype.setPrice = function (price) {
+        this.price = price
+    }
+    var s = new Student('a',11)
+    console.log(s)
+</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        方式三：工厂模式
+            *通过工厂函数动态创建对象并返回
+            *适用场景：需要创建多个对象
+            *问题：对象没有具体的类型，都是Object
+     -->
+</body>
+<script>
+    function createPerson(name,age){
+        var obj = {
+            name:name,
+            age:age,
+            setName:function(name){
+                this.name = name
+            }
+        }
+        return obj
+    }
+    var p1 = createPerson('1',11)
+</script>
+</html>
