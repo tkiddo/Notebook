@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    //示例
+    let obj = {
+        name:'king',
+        getName:function(str){
+            console.log(this.name+str)
+        }
+    }
+
+    obj.getName('aaa')
+
+    let test = {name:'test'}
+    obj.getName.call(test,'123')
+    obj.getName.apply(test,['111'])
+
+
+    Function.prototype.call2=function(ctx){
+        let context = ctx || window
+        context.fn = this 
+        let args = []
+        for(let i=1;i<arguments.length;i++){
+            args.push(arguments[i])
+        }
+        context.fn(...args)
+        delete context.fn
+    }
+
+    Function.prototype.apply2=function(ctx,arr){
+        let context = ctx || window
+        context.fn = this 
+        let args = []
+        if (!arr){
+            context.fn()
+        }else{
+            if(!(arr instanceof Array)){
+                throw new Error('params must be array')
+            }
+            context.fn(...arr)
+        }
+        delete context.fn
+    }
+
+    obj.getName.call2(test,'hei')
+    obj.getName.apply2(test,['333'])
+</script>
+</html>
