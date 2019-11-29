@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
 <script>
-    function foo(){
+    // function foo(){
+    //     console.log(this.a)
+    // }
+    // var obj = {
+    //     a:10
+    // }
+    // var a = 11
+    // setTimeout(()=>{
+    //     console.log(this.a)
+    // }, 1000);
+    function foo() {
         console.log(this.a)
     }
-    var obj = {
-        a:10
+    var a = 1
+    foo() //1
+    let obj = {
+        a: 2,
+        foo: foo
     }
-    var a = 11
-    setTimeout(()=>{
-        console.log(this.a)
-    }, 1000);
+    obj.foo() //2
+    let c = new foo() //undefined
 </script>
+
 </html>
