@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    Array.prototype.chunk=function(num){
+        if(this.length===0){
+            return [[]]
+        }
+        let newArr = []
+        while (this.length>=num){
+            let item = this.splice(0,num)
+            newArr.push(item)
+        }
+        return this.length===0?newArr:[...newArr,this]
+    }
+    console.log([].chunk(3))
+
+</script>
+</html>

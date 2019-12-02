@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /* 原型对象：在声明了一个函数之后， 浏览器会自动为这个函数创建一个对象，这个对象就是原型对象。函数声明之后，函数内部会有一个prototype属性，该属性指向函数的原型对象，默认是一个空的Object对象。
+    在这个原型对象中有一个constructor属性，该属性指向函数本身。*/
+function Foo(){
+    this.name='king'
+}
+let foo =new Foo()
+console.log(Foo.prototype)
+console.log(Foo.prototype.constructor===Foo)  //true
+/* 在给函数的原型对象添加属性和方法的时候，由该函数创建的所有实例对象都会拥有原型对象的属性和方法 */
+Foo.prototype.hi=function(){
+    console.log('hi')
+}
+Foo.prototype.age=11
+foo.hi()
+
+/* 
+显示原型：每个函数都有prototype属性，指向显示原型对象
+隐式原型：每个实例对象都有__proto__属性,指向隐式原型对象 
+关系：实例对象的隐式原型的值应该是构造函数显示原型的值*/
+
+console.log(Foo.prototype===foo.__proto__)
+
+/* 原型链：
+        在访问对象属性（方法）时：
+        1.先在对象本身属性中找，找到返回
+        2. 如果找不到，再沿着__proto__属性链向上查找，找到返回
+        3.最终没有找到，返回undefined
+        
+        在设置对象属性时，不会查找原型链，如果本身有该属性，就更改值，如果没有，添加属性并赋值*/
+console.log(foo.name,foo.hi,foo.a)
+foo.age=12
+console.log(foo.age,Foo.prototype.age,foo.__proto__.age)
+
+</script>
+</html>
