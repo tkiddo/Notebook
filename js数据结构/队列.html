@@ -50,5 +50,60 @@
     queue.enqueue(1)
     queue.enqueue(2)
     console.log(queue)
+
+    //优先级队列
+    function PriorityQueue(){
+        function QueueElement(element,priority){
+            this.element = element
+            this.priority = priority
+        }
+        PriorityQueue.prototype.enqueue = function(element,priority){
+            let el = new QueueElement(element,priority)
+            if(this.isEmpty()){
+                this.items.push(el)
+            }else{
+                let added = false
+                for (let index = 0; index < this.items.length; index++) {
+                    const element = this.items[index];
+                    if(el.priority<element.priority){
+                        this.items.splice(index,0,el)
+                        added=true
+                        break
+                    }
+                }
+                if(!added){
+                    this.items.push(el)
+                }
+            }
+        }
+        this.items = []
+    }
+
+    //dequeue:移除队列的第一个元素（即排在队列最前面），并返回被移除的元素
+    PriorityQueue.prototype.dequeue=function(){
+        return this.items.shift()
+    }
+
+    //front:返回队列中第一个元素，即最先被添加，也是最先被移除的元素,队列本身不做变动
+    PriorityQueue.prototype.front=function(){
+        return this.items[0]
+    }
+
+    //isEmpty:判断队列是否为空
+    PriorityQueue.prototype.isEmpty=function(){
+        return this.items.length===0
+    }
+
+    //size:返回队列中包含的元素个数
+    PriorityQueue.prototype.size=function(){
+        return this.items.length
+    }
+
+    //toString:将队列中的内容转换成字符串格式
+    PriorityQueue.prototype.toString=function(){
+        return this.items.join(' ')
+    }
+
+    
 </script>
 </html>
