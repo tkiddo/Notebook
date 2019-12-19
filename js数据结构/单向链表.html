@@ -92,7 +92,7 @@
         LinkedList.prototype.removeAt=function(position){
             if(position<0 || position>=this.length) return false
             if(position===0){
-                this.head = this.head.next
+                this.head = this.head.next 
             }else{
                 let current = this.head
                 while(position>1){
