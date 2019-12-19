@@ -47,12 +47,16 @@
                 node.next = head
             }else{
                 let current = this.head
+                //找到对应位置的前一项
                 while(position>1){
                     current = current.next
                     position -- 
                 }
+                //获取当前项的原始next值
                 let pre = current.next
+                //让当前项的next指向插入的节点
                 current.next = node
+                //让插入的节点的next值指向原始的next节点
                 node.next = pre
             }
             this.length++
@@ -83,8 +87,6 @@
             }
             return -1
         }
-
-        //update(position):修改某个位置的元素
 
         //removeAt(position):从列表的特定位置移除一项
         LinkedList.prototype.removeAt=function(position){
