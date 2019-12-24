@@ -14,6 +14,16 @@
             box-sizing: border-box;
             /* box-sizing: content-box; */
         }
+        .up{
+            height: 20px;
+            margin:20px;
+            background: red;
+        }
+        .down{
+            height: 20px;
+            margin:30px;
+            background: green;
+        }
     </style>
 </head>
 <body>
@@ -22,11 +32,16 @@
             CSS 决定这些盒子的大小、位置以及属性（例如颜色、背景、边框尺寸…）。 
             每个盒子包含四部分：内容区域（content），内边距(padding)，边框(border)，外边距(margin)（由内而外）。
             由此可见，.box元素的实际宽度并不是100px，而是100+20*2+1*2=142px,即包含内容区域，内边距，边框的总宽度。这点和我们平时的认知并不相符，此时就需要box-sizing这个属性。
-            box-sizing的值是用来设定width,height的作用对象的，默认是content-box，即width作用域content区域，当把box-sizing设置为border-box，情况就不一样了，width的作用对象是border以内的区域
+            box-sizing的值是用来设定width,height的作用对象的，默认是content-box，即width作用域content区域，当把box-sizing设置为border-box，情况就不一样了，width的作用对象是border以内的区域。
+
+            块级元素的上外边距和下外边距有时会合并（或折叠）为一个外边距，其大小取其中的最大者，这种行为称为外边距折叠（margin collapsing），有时也翻译为外边距合并。
+            注意浮动元素和绝对定位元素的外边距不会折叠。
         -->
         <div class='box'>
             contentdsfaa asdfsafasdfasdfasdfa
         </div>
+        <div class='up'>111</div>
+        <div class='down'>222</div>
     </div>
 </body>
 </html>
