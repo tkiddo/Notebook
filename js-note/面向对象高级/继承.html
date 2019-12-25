@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- javascript中创建对象的方式:
+    1.new Object(),动态添加属性，语句太多
+    2.对象字面量，创建多个对象时，有重复代码，不能复用
+    3.工厂模式，利用函数批量创建，对象没有特定的类型，都是Object
+    4.构造函数，方法不复用，浪费内存
+    5.构造函数+原型组合模式，属性由构造函数创建，方法绑定在原型上，节省内存
+
+    继承方式:
+    1.借用构造函数继承属性
+    2.原型链继承方法
+    3.组合继承
+    -->
+</body>
+<script>
+    //new Object()
+    let a = new Object()
+    a.name = 'king'
+    a.getName = function () {
+        console.log(this.name)
+    }
+    console.log(a)
+    //对象字面量
+    let b = {
+        name: 'king', getName: function () {
+            console.log(this.name)
+        }
+    }
+    console.log(b)
+    //工厂模式
+    function C(name) {
+        let obj = {
+            name: name,
+            getName: function () {
+                console.log(this.name)
+            }
+        }
+        return obj
+    }
+    let c = C('king')
+    console.log(c)
+    //构造函数模式
+    function D(name) {
+        this.name = name
+        this.getName = function () {
+            console.log(this.name)
+        }
+    }
+    let d = new D('king')
+    console.log(d)
+    //构造函数+原型组合模式
+    function E(name) {
+        this.name = name
+    }
+    E.prototype.getName = function () {
+        console.log(this.name)
+    }
+    let e = new E('king')
+    console.log(e)
+
+
+    //构造函数+原型组合模式创建对象
+    function Person(name){
+        this.name = name
+    }
+    Person.prototype.getName = function(){
+        console.log(this.name)
+    }
+
+    function Boy(name){
+        //借用构造函数改变this指向，继承父类的属性
+        Person.call(this,name)
+        this.gender = 'male'
+    }
+    //将子类型的原型对象指向父类型的实例来继承父类型的方法
+    Boy.prototype = new Person()
+    //上一步操作会使得子类型原型中的constructor指向父类，需要更改为子类函数
+    Boy.prototype.constructor=Boy
+    let boy = new Boy('king')
+    console.log(boy)
+    boy.getName()
+</script>
+
+</html>
