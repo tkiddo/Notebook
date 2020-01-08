@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id='box'>hello</div>
+</body>
+<script src='./js/ts/decorators.js'></script>
+<!-- <script src='./js/module.js'></script> -->
+<!-- <script src='./js/mysqlExp.js'></script> -->
+<!-- <script src='./js/generic.js'></script> -->
+<!-- <script src='./js/interface.js'></script> -->
+<!-- <script src='./js/class.js'></script> -->
+<!-- <script src='./js/index.js'></script> -->
+<!-- <script>
+    //es5 类
+    function Person(name,age) {
+        this.name=name;
+        this.age=age;
+        //实例方法，必须new之后才能使用
+        this.run=function(){
+            console.log(this.name+' run')
+        }
+        
+    }
+
+    //原型链上的属性会被多个实例共享，构造函数不会
+    Person.prototype.gender='male';
+    Person.prototype.work=function(){
+        console.log(this.name+' work')
+    }
+    //静态方法，可以直接使用
+    Person.getInfo=function (params) {
+        console.log('static function')
+    }
+
+    let p = new Person('king',10);
+    p.run()
+    p.work()
+    Person.getInfo()
+
+    //继承 原型链加对象冒充的组合继承模式
+    function Web(name,age) {
+        Person.call(this,name,age);//对象冒充继承,实例化子类可以给父类传参，可以继承构造函数里的属性和方法，但是不能继承原型链上的属性和方法
+    }
+    // Web.prototype=new Person();//原型链继承；可以继承构造函数和原型链上的方法和属性
+    Web.prototype=Person.prototype;
+    let w = new Web('wang',11);
+    w.run();//对象冒充可以继承构造函数里的属性和方法，但是不能继承原型链上的属性和方法
+    
+    w.work()
+
+    
+
+
+    
+</script> -->
+</html>
