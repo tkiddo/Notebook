@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边框</title>
+    <style>
+        body{
+            background: #111;
+        }
+        div{
+            margin: 50px;
+            width:100px;
+            height: 100px;
+        }
+        .clip{
+            border:10px dashed hsla(0, 0%, 100%, .5);
+            background: white;
+            background-clip: padding-box;
+        }
+        .shadow{
+            background:green;
+            padding:10px;
+            box-shadow: 0 0 10px 10px burlywood inset,0 0 0 10px deeppink,0 0 0 20px darkblue;
+        }
+        .outline{
+            border:10px solid darkgrey;
+            outline: 5px solid deeppink;
+            background:white;
+        }
+        .dashoutline{
+            border-radius: 10px;
+            background:white;
+            outline: 1px dashed #111;
+            outline-offset: -10px;
+        }
+        .inradius{
+            background:lightcoral;
+            border-radius: 10px;
+            box-shadow: 0 0 0 10px deeppink;
+            outline:10px solid deeppink;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="clip"></div>
+    <div class="shadow"></div>
+    <div class='outline'></div>
+    <div class='dashoutline'></div>
+    <div class='inradius'></div>
+    <!-- 
+        你不知道的css
+        1.默认情况下，背景会延伸至边框所在的区域下层。
+        案例：半透明边框没有出现
+        解决办法：background-clip,初始值为border-box,即背景会被元素的border-box裁切掉，如果不希望背景入侵边框所在的范围，就把它的值设定为padding-box
+        2.多重边框
+        实现方法：box-shadow,outline(仅两层边框)
+        box-shadow :h-shadow v-shadow blur spread color inset;
+        h-shadow	必需。水平阴影的位置。允许负值。	
+        v-shadow	必需。垂直阴影的位置。允许负值。	
+        blur	可选。模糊距离。	
+        spread	可选。阴影的尺寸。	
+        color	可选。阴影的颜色。	
+        inset	可选。将外部阴影 (outset) 改为内部阴影。
+        box-shadow的好处在于可以用逗号分隔，可以创建任意数量的投影。
+        注意：1.投影的行为和边框不完全一致，它不会影响布局，也不会收到box-sizing的影响
+              2.box-shadow属性中的inset关键字来使投影绘制在元素的内圈，此时需要设置额外的内边距来腾出足够的空间
+              3.box-shadow是层层叠加的，多层边框时需要按规律调整扩张半径，例如例子中，第一层为内边框，第二层尺寸为10px，第三层尺寸为20px
+        
+        outline属性用于描边，产生额外的外层边框
+        好处：可以通过outline-offset来控制描边与元素边缘之间的距离。
+        注意：1.只能用于双层边框，因为不能加逗号分隔
+              2.不能贴合圆角
+        3.边框内圆角
+        利用outline不会跟着元素的圆角走，但box-shadow会跟着圆角走来实现。
+
+
+
+
+     -->
+</body>
+</html>
