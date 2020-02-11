@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var permute = function (nums) {
+        let arr = []
+        let str = nums.join('')
+        for (let i = 0; i < nums.length; i++) {
+            let selectedOne = nums[i].toString()
+            let strLeft = str.replace(selectedOne, '')
+            for (let j = 0; j < nums.length; j++) {
+                let newStr = strLeft.slice(0, j) + selectedOne + strLeft.slice(j)
+                if (arr.indexOf(newStr) === -1) {
+                    arr.push(newStr)
+                }
+            }
+        }
+        return arr
+
+    };
+    console.log(permute([1,2,3,4]))
+</script>
+
+</html>
