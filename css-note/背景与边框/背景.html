@@ -12,40 +12,47 @@
             width:600px;
             height: 300px;
             padding:10px;
-            background: url('./bg.png') no-repeat #58a;
+            background: url('./bg.png') no-repeat blue;
             background-position: right 0 bottom 0;
             background-origin: padding-box;
             box-sizing: border-box;
 
         }
+        .example{
+            width:200px;
+            height: 100px;
+            background: linear-gradient(to right ,orange 50%,blue 50%);
+            background-size: 20px;
+        }
         .h-gradient{
             width:600px;
             height: 300px;
-            background:linear-gradient(#fb3 20%,#58a 0);
+            background:linear-gradient(orange 20%,blue 0);
             background-size: 100% 30px;
         }
 
         .v-gradient{
             width:600px;
             height: 300px;
-            background:linear-gradient(to right , #fb3 50%,#58a 50%);
+            background:linear-gradient(to right , orange 50%,blue 50%);
             background-size: 30px 100%;
         }
         .o-gradient{
             width:600px;
             height: 300px;
-            background:linear-gradient(45deg,#fb3 25%,#58a 0,#58a 50%,#fb3 0,#fb3 75%,#58a 0);
+            background:linear-gradient(45deg,orange 25%,blue 0,blue 50%,orange 0,orange 75%,blue 0);
             background-size: 42.42640px 42.42640px;
         }
         .repeat-o-gradient{
-            width:600px;
-            height: 300px;
-            background:repeating-linear-gradient(45deg,#fb3,#fb3 15px,#58a 0,#58a 30px)
+            width:200px;
+            height: 100px;
+            background:repeating-linear-gradient(45deg,orange,orange 15px,blue 0,blue 30px)
         }
     </style>
 </head>
 <body>
     <div class="position"></div>
+    <div class="example"></div>
     <div class="h-gradient"></div>
     <div class='v-gradient'></div>
     <div class="o-gradient"></div>
@@ -53,6 +60,14 @@
     <!-- 
         1.条纹背景
         实现方法：css线性渐变，background-size
+        linear-gradient() 函数用于创建一个表示两种或多种颜色线性渐变的图片。
+        linear-gradient([ [ [ <angle> | to <side-or-corner> ],]? <color-stop>[, <color-stop>]+);
+        <side-or-corner> :描述渐变线的起始点位置。它包含to和两个关键词：第一个指出水平位置left or right，第二个指出垂直位置top or bottom。
+        <angle>:用角度值指定渐变的方向（或角度）。角度顺时针增加。 
+        <color-stop>:由一个<color>值组成，并且跟随着一个可选的终点位置（可以是一个百分比值或者是沿着渐变轴的<length>）
+        
+        
+        
      -->
 </body>
 </html>
