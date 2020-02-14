@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平行四边形</title>
+    <style>
+        div{
+            margin:50px;
+        }
+        .paral{
+            width: 100px;
+            height: 50px;
+            background: lightseagreen;
+            color:white;
+            font-size: 24px;
+            font-weight: bold;
+            transform: skew(-45deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .in{
+            transform: skew(45deg);
+        }
+
+        .button{
+            width:200px;
+            height: 100px;
+            color:white;
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 100px;
+            position: relative;
+        }
+        .button::before{
+            content:'';
+            transform: skew(-45deg);
+            background:lightseagreen;
+            position:absolute;
+            z-index: -1;
+            top:0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .inc{
+            width: 200px;
+            height: 100px;
+            background: lightseagreen;
+            border-radius: 10px;
+            position: relative;
+        }
+        .inc::before{
+            content:'';
+            position:absolute;
+            top:-10px;
+            left:-10px;
+            right: -10px;
+            bottom: -10px;
+            background: lightslategray;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="paral">
+        <div class="in">hello</div>
+    </div>
+
+    <div class="button">click me</div>
+
+    <div class="inc"></div>
+    
+    
+</body>
+</html>
