@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/* 1.JS 的数据类型分类和判断 
+js的数据类型可以分为两大类：原始类型和引用类型，原始类型包括Number,String,Boolean,Null,Undefined,Symbol,引用类型包括object,function
+typeof 可以判断类型,注意typeof null 为object,引用类型除了function 都是object
+instanceof 用于实例和构造函数的对应。
+在参数传递方式上，值类型是按值传递，引用类型是按共享传递。*/
+var a = '21',b=null,c=undefined,d=1,e=true,f=Symbol('a'),g=[{a:1}]
+console.log(typeof a,typeof b,typeof c,typeof d,typeof e,typeof f,typeof g,typeof (function fn(){}))
+let h = [1,2,3]
+console.log(h instanceof Object,h instanceof Array)
+
+function foo(a){
+    a = a * 10;
+}
+function bar(b){
+    b.value = 'new';
+}
+var a = 1;
+var b = {value: 'old'};
+foo(a);
+bar(b);
+console.log(a); // 1
+console.log(b); // value: new
+
+/* 原型和原型链
+所有的引用类型（数组，对象，函数）都有__proto__属性
+所有的函数都有prototype属性
+所有引用类型的__proto__值指向它的构造函数的prototype值 
+
+当试图得到对象的某个属性值时，如果对象本身不存在这个属性，就会去__proto__（也就是它的构造函数prototype属性）中查找，层层往上，直到Object
+判断这个属性是否是对象本身的熟悉用hasOwnProperty
+*/
+// 构造函数
+function Foo(name, age) {
+    this.name = name
+}
+Foo.prototype.alertName = function () {
+    // alert(this.name)
+}
+// 创建示例
+var fo = new Foo('zhangsan')
+fo.printName = function () {
+    console.log(this.name)
+}
+// 测试
+fo.printName()
+fo.alertName()
+
+console.log(fo.hasOwnProperty('alertName'),fo.toString())
+/* toString方法的查找过程：
+1.对象fo本身是否存在，否
+2.对象fo.__proto__,即Foo.prototype上是否存在，否
+3.对象fo.__proto__.__proto__ ,即Foo.prototype.__proto__=Object.prototype上是否存在，是
+注意,最上层Object.prototype.__proto__===null*/
+console.log(fo.__proto__.__proto__)
+
+
+/* 作用域和闭包
+1.变量提升
+概念：在一段js代码执行之前，要先解析代码，解析的时候会先创建一个全局执行上下文环境，把即将执行的变量，函数声明先拿出来，变量先赋值为undefined，函数先声明好使用，然后在执行程序
+注意：1.只有通过var声明的变量才会提升
+2.函数在执行之前会创建函数执行上下文环境*/
+console.log(s)
+var s = 10
+function fn1(name){
+    age=11
+    console.log(age,name)
+}
+fn1('ads')
+console.log(t)//不是var声明的变量不会提升
+var t=20
+
+/* 先搞明白一个很重要的概念 —— this的值是在执行的时候才能确认，定义的时候不能确认！ 
+当前作用域没有定义的变量，这成为 自由变量 
+作用域是一个独立的地盘，让变量不外泄，ES6之前没有块级作用域，有全局作用域和函数作用域
+作用域链：查找变量首先从当前作用域开始，没找到就往上一层查找，直到全局作用域都没找的就放弃*/
+
+
+function bbb(){
+    var ccc=2
+    console.log(ccc,aaa)
+}
+bbb()
+var aaa=1
+
+//自由变量将从作用域链中查找，依据的是函数定义时的作用域链，而不是执行时
+function F1() {
+    var a1 = 100
+    return function () {
+        console.log(a1)
+    }
+}
+var f1 = F1()
+var a1 = 200
+f1()//100
+
+function F11() {
+    var a = 100
+    return function () {
+        console.log(a)
+    }
+}
+function F22(f1) {
+    var a = 200
+    f1()
+}
+var f1 = F11()
+F22(f1)
+</script>
+</html>

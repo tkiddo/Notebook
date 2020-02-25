@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Foo() {
+
+        var i = 0;
+        return function () {
+            console.log(i)
+            document.write(i++);
+        }
+    }
+    var f1 = Foo();
+    f2 = Foo();
+    f1();//0
+    f1();//1
+    f2();//0
+    /* 
+    解释：这是一个闭包，闭包的作用有两个：1.可以读取函数内部的变量；2.可以将这些变量一直保存在内存中。当f1()和f2()调用时，会创建两个执行环境，保存各自的变量，相互不影响。而同一个函数多次调用时返回值
+    会被保存到同一个变量中，因为闭包中i没有被释放。*/
+
+    var A = { n: 4399 };
+    var B = function () { this.n = 9999 };
+    var C = function () { var n = 8888; };
+    B.prototype = A;
+    C.prototype = A;
+    var b = new B();
+    var c = new C();
+    A.n++;
+    console.log(b.n);//9999
+
+    console.log(c.n);//4400
+    //b是B的实例对象，函数B的原型对象指向A，读取b.n时先查找本身是否有n，有n为9999
+    //c是C的实例对象，函数C的原型指向A，读取c.n时先查找本身，没有n，在沿着原型链查找，在原型对象A上找到n为4400（A.n++）
+
+    var color = 'green';
+    var test4399 = {
+        color: 'blue',
+        getColor: function () {
+            var color = 'red';
+            // alert(this.color);
+        }
+    }
+    var getColor = test4399.getColor;
+    getColor();//green
+
+    test4399.getColor();//blue
+
+
+
+
+    function test() {
+        var n = 4399;
+        function add() {
+            n++;
+            console.log(n);
+        }
+        return {
+            n: n,
+            add: add
+        }
+    }
+    var result = test();
+    var result2 = test();
+
+    result.add();//4400 
+    result.add();//4401
+    console.log(result.n) //4399
+    result2.add()//4400  
+
+
+
+    function fun(num) {
+        console.log(num);
+        var num = 5;
+        console.log(num);
+    }
+    fun(10)//10,5 
+
+
+    function fun2(ger) {
+        console.log(ger);
+        function ger() {
+            alert("hello world");
+        }
+    }
+    fun2(5) /* function ger() {
+            alert("hello world");
+        } */
+    //函数声明会被提升到当前作用域顶端，形参赋值在前  
+
+    function fun3(ger) {
+        console.log(ger);
+        var ger = function () {//函数表达式
+            alert("hello world");
+        }
+    }
+    fun3(5)   //5，表达式定义函数，只会提升变量，不会提升函数，形参赋值为5
+
+    function a(b) {
+        console.log(b);
+        function b() {
+            console.log(b);
+        }
+        b();
+    }
+    a(1)/* function b() {
+            console.log(b);
+        } function b() {
+            console.log(b);
+        }*/
+
+    function a2(b) {
+        console.log(b);
+        var b = function () {//函数表达式
+            console.log(b);
+        }
+        b();
+    }
+    a2(1) /*1, function b() {
+            console.log(b);
+        } */
+
+
+    function test2(a, b) {
+        console.log(a);
+        console.log(b);
+        var b = 234;
+        console.log(b);
+        a = 123;
+        console.log(a);
+        function a() { };
+        var a;
+        b = 234;
+        var b = function () { };
+        console.log(a);
+        console.log(b);
+    }
+    test2(1);
+    /* function a() { }; undefined  234 123 123 function () { }*/
+
+
+    console.log(test3);
+    function test3(test) {
+        console.log(test);
+        var test = 234;
+        console.log(test);
+        function test() { }
+    }
+    test3(1);
+    var test3 = 123;
+    /* function test3(test) {
+        console.log(test);
+        var test = 234;
+        console.log(test);
+        function test() { }
+    }  
+    function test() { } 
+    234*/
+
+    function bar() {
+        return foo;
+        foo = 10;
+        function foo() { };
+        var foo = 11;
+    }
+    console.log(bar());
+    /* function foo() { }; */
+
+    console.log(bar2());//11
+    function bar2() {
+        foo = 10;
+        function foo() { }
+        var foo = 11;
+        return foo;
+    }
+
+
+    
+</script>
+
+</html>
