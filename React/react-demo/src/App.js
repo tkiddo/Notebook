@@ -3,6 +3,7 @@ import {Login} from './components/login'
 import {Theme} from './components/subject/page'
 import Home from './components/Home'
 import Parent from './components/Update/parent'
+import Hook from './components/hook'
 import './App.css';
 
 
@@ -13,6 +14,7 @@ function App() {
       <Theme />
       <Home name='home'/>
       <Parent></Parent>
+      <Hook></Hook>
     </div>
   );
 }
