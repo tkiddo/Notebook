@@ -73,6 +73,17 @@
     }
     fn.bind().bind(a)() // => Window
     //不管我们给函数进行几次bind显式绑定，函数中的this永远由 第一次bind 决定
+
+
+    //用 apply 实现 bind
+
+Function.prototype.bind = function (context, ...args1) {
+  const fn = this
+   return function(...args2){
+     fn.apply(context,[...args1,...args2])
+   }
+}
+
 </script>
 
 </html>
