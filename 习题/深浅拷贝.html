@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- 浅拷贝：可以用object.assign()实现，会把原对象的所有属性拷贝到新对象，如果属性值是对象，拷贝的是地址，而不是对象 .也可以通过展开运算符...实现-->
+<script>
+    let obj = {
+        a:1,
+        b:{
+            c:2
+        }
+    }
+
+    //浅拷贝
+    let obj1 = Object.assign({},obj)
+    obj.b.c=4
+    console.log(obj1)
+
+    //深拷贝：lodash库中cloneDeep也可以解决
+    let str = JSON.stringify(obj)
+    let obj2 = JSON.parse(str)
+    obj.b.c=5
+    console.log(obj2)
+</script>
+</html>

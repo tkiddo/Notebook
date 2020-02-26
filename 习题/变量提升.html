@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!-- 
+    ###var,let,const区别
+    var：没有块的概念，不能跨函数访问，可以跨块访问，有变量提升，var 在全局作用域下声明变量会导致变量被挂载到window上，其他两者不会
+    let：有块的概念，不能跨块访问，也不能跨函数访问
+    const：和let一样，只是不能修改值（并不是值不能动，而是变量指向的那块内存地址不能改动）
+    
+    在全局作用域下使用let和const声明变量，变量并不会被挂载到window上，这一点与var不同
+
+关于const，还有两个注意点：
+- const声明之后必须马上赋值，否则报错
+- const简单类型一旦声明就不能修改，而复杂类型（数组，对象）指针指向的地址不能修改，但内部数据可以修改
+ 
+    提升：var定义的变量的声明会被提升到当前作用域的顶端，并赋值为undefined，函数声明也会被提升，而且是整个函数都会提升，函数提升优先于变量提升
+    暂时性死区：进入当前作用域时，所要使用的变量就已经存在了，但不能获取，只有到声明那一行出现的时候才能使用，这就是暂时性死区。let，const由于暂时性死区的存在，不能在声明前使用-->
+
+</html>

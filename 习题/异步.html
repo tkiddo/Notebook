@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!-- 异步，不会阻塞后面程序的运行
+单线程，同一时间只能做一件事 -->
+
+<script>
+    //箭头函数：
+    function fn() {
+        console.log('real', this)  // {a: 100} ，该作用域下的 this 的真实的值
+        var arr = [1, 2, 3]
+        // 普通 JS
+        arr.map(function (item) {
+            console.log('js', this)  // window 。普通函数，这里打印出来的是全局变量，令人费解
+            return item + 1
+        })
+        // 箭头函数
+        arr.map(item => {
+            console.log('es6', this)  // {a: 100} 。箭头函数，这里打印的就是父作用域的 this
+            return item + 1
+        })
+    }
+    fn.call({ a: 100 })
+
+    //Set 类似于数组，但数组可以允许元素重复，Set 不允许元素重复
+    //Map 类似于对象，但普通对象的 key 必须是字符串或者数字，而 Map 的 key 可以是任何数据类型
+
+    /* 
+    简单归纳下 Promise：三个状态、两个过程、一个方法，快速记忆方法：3-2-1
+
+三个状态：pending、fulfilled、rejected
+
+两个过程：
+
+pending→fulfilled（resolve）
+pending→rejected（reject）
+一个方法：then */
+</script>
+
+</html>

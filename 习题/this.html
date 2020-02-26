@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- this,闭包，作用域链 -->
+</body>
+<script>
+    //总原则this永远指向调用函数的对象
+    //1、对象中的方法中的this，指向调用它的对象，即 b ,所以 this.a 的输出结果是b对象中的a的值； 如果b对象中没有a，则this.a的输出结果是 undefined。
+    var o = {
+        a: 10,
+        b: {
+            // a: 12,
+            fn: function () {
+                console.log(this.a);
+                console.log(this);
+            }
+        }
+    }
+    //调用fn函数的对象是o.b，所以this指向o.b,this.a就是o.b.a
+    o.b.fn()
+
+    //2、改变调用方法，不直接调用：改用赋值后调用，此时this的指向为window，所以this.a的输出结果为a对象
+    var a = {
+        a: 20,
+        b: {
+            fn: function () {
+                console.log(this.a)
+            }
+        }
+    }
+    var b = a.b.fn
+    //赋值后调用，即函数在全局调用，this指向window,this.a指向a对象
+    b()
+
+    //3、在对象方法中调用时：
+    var point = {
+        x: 0,
+        y: 0,
+        moveTo: function (x, y) {
+            //赋值前this.x为0
+            this.x = this.x + x;
+            this.y = this.y + y;
+            console.log(this.x);
+            console.log(this.y);
+        }
+    };
+    //此时调用函数的对象是point本身，所以this指向point对象，this.x初始为0，this.y初始为0
+    point.moveTo(1, 1)
+
+    //4、作为函数调用时
+    function someFun(x) {
+        this.x = x;
+    }
+    someFun(5);// //函数被调用时，this绑定的是全局对象 window,相当于直接声明了一个全局变量x，并赋值为5
+    console.log(x); // x 已经成为一个值为 5 的全局隐式变量
+
+    //
+    var point2 = {
+        x: 0,
+        y: 0,
+        moveTo: function (x, y) {
+            // 内部函数
+            var moveX = function (x) {
+                this.x = x;
+                console.log(this, this.x)
+            };
+            // 内部函数
+            var moveY = function (y) {
+                this.y = y;
+            };
+            moveX(x); //没有指明对象，即这里是全局调用，所以moveX里的this指向window,全局变量x赋值为1
+            moveY(y);
+        }
+    };
+    //调用函数的对象是point2本身
+    point2.moveTo(1, 1);
+
+    //5、作为构造函数调用：
+    function Point(x, y) {
+        console.log(this); // point对象
+        this.x = x;
+        this.y = y;
+        this.moveTo = function (x, y) {
+            this.x = x;
+            this.y = y;
+            console.log(this.x);
+            console.log(this.y);
+        }
+    }
+    var p1 = new Point(0, 0); //注意这种形式方法的调用及apply、call的使用
+
+    var p2 = {
+        x: 0,
+        y: 0
+    }
+    p1.moveTo(1, 1);
+    p1.moveTo.apply(p2, [10, 10]);
+
+    console.log(x);// x is not defined
+    console.log(y);// 
+
+    //6、this在不同场景中的指向
+    //a.匿名函数中的this指向全局对象
+    var c = 10
+    var foo = {
+        c: 30,
+        fn: (function () {
+            console.log(this)
+        })()
+    }
+    foo.fn
+    //b.setInterval和setTimeout定时器中的this指向全局对象
+    var d = 1111
+    var timer = setTimeout(() => {
+        console.log(this.d)
+        clearTimeout(timer)
+    }, 10);
+    //c.eval中的this指向调用上下文中的this
+    (function () {
+        eval("console.log(this)"); // Window
+    })();
+    function Foo() {
+        this.bar = function () {
+            eval("console.log(this)"); // Foo
+        }
+    }
+    var foo = new Foo();
+    foo.bar();
+    //d.apply和call中的this指向参数中的对象
+    var d = 10;
+    var foo = {
+        d: 20,
+        fn: function () {
+            console.log(this.d);
+        }
+    };
+    var bar = {
+        d: 30
+    }
+    foo.fn.apply();//10(若参数为空，默认指向全局对象)
+    foo.fn.apply(foo);//20
+    foo.fn.apply(bar);//30
+</script>
+
+</html>

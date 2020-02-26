@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!-- 
+    定义：闭包是一个有权访问另外一个函数内部的变量的函数
+    简单地说，函数A中包含函数B，函数B有权访问函数A中的变量和方法，此时，函数B就是闭包
+    闭包存在的意义是我们可以间接地访问到函数内部的变量，而且这些变量不会随着函数执行完就被销毁，但过多的闭包会造成内存泄漏，闭包也可以防止命名冲突
+-->
+<script>
+    for (var i = 0; i <= 5; i++) {
+        setTimeout(function () {
+            console.log(i)
+        }, 1000 * i)
+    } // 6，6，6，6，6，6
+
+    for (var i = 1; i <= 5; i++) {
+        (function (j) {
+            setTimeout(() => {
+                console.log(j)
+            }, j * 1000)
+        })(i)
+    } // 0，1，2，3，4，5
+
+// Tips：通过let定义i也能够解决，因为let具有块级作用域
+
+</script>
+
+</html>

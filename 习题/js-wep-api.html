@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<!-- device-width -->, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        XML 是一种可扩展的标记语言，所谓可扩展就是它可以描述任何结构化的数据，它是一棵树
+        HTML 是一个有既定标签标准的 XML 格式，标签的名字、层级关系和属性，都被标准化（否则浏览器无法解析）。
+    -->
+</body>
+<script>
+    var xhr = new XMLHttpRequest()
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===4){
+            if(xhr.status===200){
+                console.log(xhr.responseText)
+            }
+        }
+    }
+    xhr.open('GET','./get',false)
+    xhr.send()
+    /* 
+    上述代码中，有两处状态码需要说明。xhr.readyState是浏览器判断请求过程中各个阶段的，xhr.status是 HTTP 协议中规定的不同结果的返回状态说明。 */
+    /* 
+    cookie:具备浏览器存储的能力，缺点：存储量小 ，只有4kb；所有http请求都带上，影响效率；api简单，需要封装
+    localStorage:为浏览器缓存设计,优点：存储量大，有5MB；不会被http请求携带；使用简单
+    sessionStorage:区别在于会及时失效*/
+
+
+    /* 
+    浏览器从加载页面到渲染页面的过程
+    加载过程：
+    1.浏览器根据DNS服务器得到对应的IP地址
+    2.向该IP地址发送http请求
+    3.服务器收到，处理并返回http请求
+    4.浏览器得到返回的内容
+    渲染页面：
+    1.根据HTML生成DOM（文档对象模型）
+    2.根据CSS生成CSSOM（CSS对象模型）
+    3.将DOM和CSSOM合并成renderTree
+    4.根据renderTree开始渲染和展示
+    5.遇到script时，会执行并阻塞渲染*/
+
+
+    /* 前端性能优化
+    减少页面体积，提升网络加载
+    1.代码压缩，图片压缩，雪碧图
+    2.使用CDN使资源加载更快
+    优化页面渲染
+    1.css放前面，js放后面
+    2.懒加载
+    3.减少DOM查询，
+    4.减少DOM操作
+    5.事件节流
+    6.SSR*/
+</script>
+</html>
