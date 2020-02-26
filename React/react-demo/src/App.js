@@ -2,6 +2,7 @@ import React from 'react';
 import {Login} from './components/login'
 import {Theme} from './components/subject/page'
 import Home from './components/Home'
+import Parent from './components/Update/parent'
 import './App.css';
 
 
@@ -10,7 +11,8 @@ function App() {
     <div className="App">
       <Login login={(userName)=>(<h1>{userName}</h1>)} nologin={()=>(<h1>nologin</h1>)}></Login>
       <Theme />
-      <Home />
+      <Home name='home'/>
+      <Parent></Parent>
     </div>
   );
 }
