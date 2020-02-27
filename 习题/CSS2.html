@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+##overflow属性解剖
+- scroll：必定出现滚动条
+- auto：子元素内容大于父元素时出现滚动条
+- visible：溢出的内容出现在父元素之外
+- hidden：溢出时隐藏
+
+##RGBA() 与 opacity 在透明效果上有什么区别？
+opacity 作用于元素，以及元素内的所有内容的透明度
+rgba() 只作用于元素的颜色或者背景色（设置rgba透明的元素的子元素不会继承透明效果）
+
+##px 和 em 都是长度单位
+区别在于px的值是固定的，指定多少就是多少，而em的值是不固定的，并且em会继承父级元素的字体大小
+
+##Css引入方式有4种 内联、内嵌、外链、导入
+
+##display:none 与 visibility:hidden 的区别是什么？
+display:none  隐藏对应的元素，在文档布局中不再分配空间（导致重排）
+visibility:hidden  隐藏对应的元素，在文档布局中保留原来的空间（导致重绘）
+
+##文档解析类型
+HTML存在两种文档类型
+
+怪异模型（默认）→ 浏览器按照自己的方式解析
+标准模式 → 按照W3C标准
+如何避免浏览器的怪异模式 - 通过声明文档的解析类型 <!DOCTYPE html>
+
+##Meta提供给页面一些元信息（名称/键值），它有利于SEO
+
+##请讲一讲什么是HTML语义化
+
+首先，Html语义化可以是页面更加结构化，提供了一系列具有结构意义的标签，例如header,footer等，让结构更加清晰，有利于浏览器的解析
+其次，即使在没有css样式的情况下，页面也会以一种文档结构来显示，更加易于阅读
+由于搜索引擎的爬虫也会依赖于Html标记来确定上下文和各个关键字的权重，因此有利于SEO
+最后，Html语义化更便于阅读，维护和理解
+
+##常见的浏览器内核
+-webkit- → webkit内核（Chrome）
+-moz- → Gecko内核（fixfox）
+-o- → Opera内核（Opera)
+-ms- → Trident内核（IE）
+
+##Html5新增特性：
+
+canvas
+audio/video
+对本地离线存储更好的执行
+localStorage长期存储数据，浏览器关闭后数据也不丢失（只能手动删除）
+sessionStorage在浏览器关闭后自动删除
+语义化更好的标签
+新的表单控件
+新的通信技术（WebWorker,WebSocket)
+
+##defer/async 有什么区别？
+
+defer 延迟加载 → 等到整个页面都渲染结束（DOM结构完全生成，以及其他脚本执行完）才会执行，多个defer会按脚本出现的顺序依次加载（渲染完加载）
+async 异步加载 → 一旦加载完，渲染引擎就会停止加载，然后执行脚本，脚本执行完才继续渲染（阻塞渲染），多个async不能保证加载顺序（加载完就执行）-->
+</body>
+</html>
