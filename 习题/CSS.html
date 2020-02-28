@@ -195,6 +195,36 @@ inline-block 元素特点：
         height: 30px;
         background: indigo;
     }
+
+
+    .circle{
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        border:1px solid #111;
+        margin:100px;
+        position: relative;
+    }
+    .circle::before{
+        content:'';
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        border:1px solid #111;
+        display: block;
+        position: absolute;
+        left:-52px;
+    }
+    .circle::after{
+        content:'';
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        border:1px solid #111;
+        display: block;
+        position: absolute;
+        right:-52px;
+    }
     </style>
 </head>
 <!-- 
@@ -253,6 +283,7 @@ inline-block 元素特点：
         <div style="clear:both"></div>
     </div>
     <div class='another'></div>
+    <div class='circle'></div>
 
     
 </body>
