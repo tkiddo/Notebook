@@ -1,7 +1,6 @@
 import React from '../react'
 
 
-
 const render = function (ele,root) {
     const element = renderNode(ele)
     root.appendChild(element)
@@ -13,9 +12,12 @@ function renderNode(ele) {
     let element;
     if(typeof ele === 'string'){
         element = document.createTextNode(ele);
+    }else if(typeof ele === 'number'){
+        element = document.createTextNode(ele.toString());
     }else if(typeof tag === 'function'){
         let comp = React.createComponent(tag,attrs)
-        return renderComponent(comp)
+        renderComponent(comp)
+        return comp.base
     }else{
         element = document.createElement(tag)
         if(attrs){
@@ -35,8 +37,14 @@ function renderNode(ele) {
 }
 
 function renderComponent(comp) {
-    comp.base = renderNode(comp.render())
-    return comp.base
+    let base = renderNode(comp.render())
+    if(comp.base && comp.base.parentNode){
+        comp.base.parentNode.replaceChild(base,comp.base)
+    }
+    comp.base = base
+    if(comp.componentDidMount){
+        comp.componentDidMount()
+    }
 }
 
 function setAttribute(ele,key,value) {
@@ -56,5 +64,6 @@ function setAttribute(ele,key,value) {
 }
 
 export default {
-    render
+    render,
+    renderComponent
 }
