@@ -22,8 +22,8 @@ export default class Home extends React.Component{
     render(){
         const {age} = this.state
         return (
-            <div className='123'>
-                <div className='456' style={{color:"red"}} onclick={()=>console.log(1)}>{this.props.name}</div>
+            <div className={age}>
+                <div className={age} onclick={()=>console.log(1)}>{this.props.name}</div>
                 <div>{age}</div>
                 <button onclick={this.handleClick}>change</button>
             </div>
