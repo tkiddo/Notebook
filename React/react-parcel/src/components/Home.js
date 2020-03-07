@@ -1,4 +1,5 @@
 import React from '../lib/react'
+// import data from '../json/data.json'
 
 export default class Home extends React.Component{
     constructor(){
@@ -11,6 +12,7 @@ export default class Home extends React.Component{
 
     componentDidMount(){
         console.log('mounted')
+        
     }
 
     handleClick(){

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let data ={
+            name:'king',
+            age:12
+        }
+        let str = JSON.stringify(data,function(key,value){
+            switch(key){
+                case "name":
+                    return `${key}-${value}`
+                default:
+                    return value
+            }
+        })
+        console.log(str)
+        let obj = JSON.parse(str,(key,value)=>{
+            if(key==='age'){
+                return value+1
+            }
+            return value
+        })
+        console.log(obj)
+</script>
+</html>
