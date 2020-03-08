@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    
+
+
+    function myPromise(fn) {
+        this.state = 'pending'
+        this.res = null
+        this.err = null
+
+        function resolve(res) {
+            if (this.state === 'pending') {
+                this.state = 'fulfilled'
+                this.res = res
+            }
+
+        }
+
+        function reject(err) {
+            if (this.state === 'pending') {
+                this.state = 'rejected'
+                this.err = err
+            }
+
+        }
+
+        try {
+            fn(resolve, reject)
+        } catch (e) {
+            reject(e)
+        }
+
+        return this
+
+    }
+
+    myPromise.prototype.then = function (f1, f2) {
+        console.log(this.state)
+        if (typeof f1 === 'function' && this.state === 'fulfilled') {
+            f1(this.res)
+        }
+        if (typeof f2 === 'function' && this.state === 'rejected') {
+            f2(this.err)
+        }
+    }
+
+    myPromise.prototype.catch = function (f2) {
+        if (typeof f2 === 'function' && this.state === 'rejected') {
+            f2(this.err)
+        }
+    }
+
+
+
+    let a = new myPromise((resolve, reject) => {
+        console.log('1')
+        setTimeout(function () {
+            console.log('3')
+            resolve({
+                name: 'king'
+            })
+        }, 1000)
+    })
+    console.log(a)
+    a.then(res => {
+        console.log(res)
+    })
+    console.log('2')
+</script>
+
+</html>
