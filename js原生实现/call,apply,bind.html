@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var a = {
+        name:'a',
+        say:function(str){
+            console.log(this.name+str)
+        }
+    }
+    var b = {
+        name:'b'
+    }
+    a.say.call(b,'hhh')
+    //call函数可以将fn函数中的this指向obj
+    Function.prototype.myCall = function(){
+        const fn = this;
+        const [obj,...params] = [...arguments]
+        obj.fn=fn
+        obj.fn(...params)
+        delete obj.fn
+    }
+
+    Function.prototype.myApply=function(){
+        const fn = this;
+        const [obj,...params] = [...arguments]
+        obj.fn=fn
+        obj.fn(params)
+        delete obj.fn
+    }
+
+    Function.prototype.myBind=function(){
+        const fn = this;
+        const [obj,...params] = [...arguments]
+        return function(){
+            const [...params2]=[...arguments]
+            obj.fn = fn;
+            obj.fn(...params2,...params)
+            delete obj.fn
+        }
+    }
+
+    console.log(a.say.call(b,'hhh'))
+    a.say.myCall(b,'hhh')
+    a.say.myApply(b,['hhh'])
+    let fn=a.say.myBind(b,'hhh')
+    fn()
+    //https://www.cnblogs.com/chenwenhao/p/11294541.html#_label5
+</script>
+
+</html>

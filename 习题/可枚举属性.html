@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Creature(){
+        this.name= 'ha'
+        Creature.prototype.sleep=function(){
+            console.log(this.name)
+        }
+    }
+    function Person(name){
+        this.name = name;
+        Person.prototype.sayName =function(){
+            console.log(this.name)
+        }
+    }
+
+    Person.prototype = new Creature()
+
+    let a = new Person('king')
+    console.log(a.name)
+    for (const key in a) {
+        console.log(key,a.hasOwnProperty(key))
+    }
+</script>
+</html>
