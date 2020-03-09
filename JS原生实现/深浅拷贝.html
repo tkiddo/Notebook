@@ -25,7 +25,7 @@
 
     let a = new Person('king')
     //for..in..循环会遍历原型链上的可枚举属性
-    console.log(a.obj.age)
+    console.log(a)
     // for (const key in a) {
     //     console.log(key)
     // }
@@ -42,12 +42,16 @@
     console.log(c)
 
     function deepClone(obj) {
+        //判断是否是数组
         let result = Array.isArray(obj) ? [] : {}
         for (let key in obj) {
+            //判断是否是自身的属性
             if (obj.hasOwnProperty(key)) {
                 if (typeof obj[key] === 'object') {
+                    //如果属性值是对象，对这个对象深拷贝
                     result[key] = deepClone(obj[key])
                 } else {
+                    //如果属性值类型不是object，直接复制
                     result[key] = obj[key]
                 }
             }
@@ -60,6 +64,30 @@
     let d = deepClone(exp)
     console.log(d)
 
+
+    let temp = {
+        name:'temp',
+        obj:{
+            msg:'hello'
+        },
+        fn:function(){
+            console.log('hello')
+        }
+    }
+
+    // let shallowCopy = Object.assign({},temp)
+    // temp.obj.msg='hi'
+    // console.log(shallowCopy.obj.msg)//hi
+
+    
+    // let deepCopy1 = JSON.parse(JSON.stringify(temp))
+    // temp.obj.msg='hi'
+    // console.log(deepCopy1.obj.msg,deepCopy1.fn)
+
+    let deepCopy2 = deepClone(temp)
+    temp.obj.msg='hi'
+    console.log(deepCopy2.obj.msg,deepCopy2)
+    deepCopy2.fn()
 
 </script>
 
