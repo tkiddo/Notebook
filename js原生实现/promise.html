@@ -19,12 +19,16 @@
         this.res = null
         this.err = null
 
+        this.resolve = resolve.bind(this)
+        this.reject = reject.bind(this)
+
         function resolve(res) {
+            console.log('resolve-',this)
             if (this.state === 'pending') {
+                console.log('change-state')
                 this.state = 'fulfilled'
                 this.res = res
             }
-
         }
 
         function reject(err) {
@@ -32,32 +36,31 @@
                 this.state = 'rejected'
                 this.err = err
             }
-
         }
 
         try {
-            fn(resolve, reject)
+            fn(this.resolve, this.reject)
         } catch (e) {
             reject(e)
         }
 
-        return this
+        // return this
 
     }
 
-    myPromise.prototype.then = function (f1, f2) {
+    myPromise.prototype.then = function (onFulfilled, onRejected) {
         console.log(this.state)
-        if (typeof f1 === 'function' && this.state === 'fulfilled') {
-            f1(this.res)
+        if (typeof onFulfilled === 'function' && this.state === 'fulfilled') {
+            onFulfilled(this.res)
         }
-        if (typeof f2 === 'function' && this.state === 'rejected') {
-            f2(this.err)
+        if (typeof onRejected === 'function' && this.state === 'rejected') {
+            onRejected(this.err)
         }
     }
 
-    myPromise.prototype.catch = function (f2) {
-        if (typeof f2 === 'function' && this.state === 'rejected') {
-            f2(this.err)
+    myPromise.prototype.catch = function (onRejected) {
+        if (typeof onRejected === 'function' && this.state === 'rejected') {
+            onRejected(this.err)
         }
     }
 
@@ -65,12 +68,13 @@
 
     let a = new myPromise((resolve, reject) => {
         console.log('1')
-        setTimeout(function () {
-            console.log('3')
-            resolve({
-                name: 'king'
-            })
-        }, 1000)
+        // setTimeout(function () {
+        //     console.log('3')
+        //     resolve({
+        //         name: 'king'
+        //     })
+        // }, 1000)
+        resolve({name:'a'})
     })
     console.log(a)
     a.then(res => {

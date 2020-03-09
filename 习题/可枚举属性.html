@@ -9,14 +9,15 @@
     
 </body>
 <script>
-    function Creature(){
-        this.name= 'ha'
-        Creature.prototype.sleep=function(){
-            console.log(this.name)
+    function Creature(className){
+        this.className= className
+        Creature.prototype.getClass=function(){
+            console.log(this.className)
         }
     }
     function Person(name){
         this.name = name;
+        Creature.call(this,'human')
         Person.prototype.sayName =function(){
             console.log(this.name)
         }
@@ -25,9 +26,34 @@
     Person.prototype = new Creature()
 
     let a = new Person('king')
-    console.log(a.name)
+
+    Object.defineProperty(a,'age',{
+        enumerable:false,
+        configurable:true,
+        writable:true,
+        value:0
+    })
+
+    console.log('对象',a)
+    //获取自身可枚举属性用Object.keys(),获取包括原型链上的可枚举属性用for in
+    let ownEnumerableProperties = Object.keys(a)
+    console.log('自身可枚举属性',ownEnumerableProperties)
+    let allEnumerableProperties = []
     for (const key in a) {
-        console.log(key,a.hasOwnProperty(key))
+        allEnumerableProperties.push(key)
+        //判断属性是否是自身所有的
+        if(a.hasOwnProperty(key)){
+            console.log('判断自身'+key)
+        }
     }
+    console.log('所有可枚举属性,包括原型链上',allEnumerableProperties)
+    //Object.getOwnPropertyNames()方法返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括Symbol值作为名称的属性）组成的数组。
+    let ownProperties = Object.getOwnPropertyNames(a)
+    console.log('所有自身属性',ownProperties)
+    //对比所有自身属性和自身可枚举属性，可以找到自身不可枚举属性
+    let allUnEnumerableProperties = ownProperties.filter(item=>{
+        return ownEnumerableProperties.indexOf(item) === -1
+    })
+    console.log('自身不可枚举属性',allUnEnumerableProperties)
 </script>
 </html>

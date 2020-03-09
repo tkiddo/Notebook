@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //浅拷贝，只拷贝简单值，如果是对象，则拷贝的是对象的引用，即地址.不包括原型链上的属性
+    /* Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。 */
+    function Person(name) {
+        this.name = name
+        this.obj = {
+            age: 11
+        }
+        Person.prototype.sayName = function () {
+            console.log(this.name)
+        }
+    }
+
+    let a = new Person('king')
+    //for..in..循环会遍历原型链上的可枚举属性
+    console.log(a.obj.age)
+    // for (const key in a) {
+    //     console.log(key)
+    // }
+    let b = Object.assign({}, a)
+
+    a.obj.age = 33
+
+    console.log(b)
+    console.log({ ...a })
+    //深拷贝，就是拷贝的时候如果碰到对象，对里面的值再进行拷贝
+
+    let c = JSON.parse(JSON.stringify(a))
+    a.obj.age = 123
+    console.log(c)
+
+    function deepClone(obj) {
+        let result = Array.isArray(obj) ? [] : {}
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                if (typeof obj[key] === 'object') {
+                    result[key] = deepClone(obj[key])
+                } else {
+                    result[key] = obj[key]
+                }
+            }
+
+        }
+        return result
+    }
+
+    let exp = [{ name: '123' }]
+    let d = deepClone(exp)
+    console.log(d)
+
+
+</script>
+
+</html>

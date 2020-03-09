@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+
+
+    function myPromise(fn) {
+        let state = 'pending'
+        let value = null
+        let reason = null
+        let onResolveCallbacks = []
+        let onRejectCallbacks = []
+
+
+        function resolve(res) {
+            if (state === 'pending') {
+                state = 'fulfilled'
+                value = res
+                onResolveCallbacks.forEach(fn=>{
+                    fn(value)
+                })
+            }
+        }
+
+        function reject(err) {
+            if (state === 'pending') {
+                state = 'rejected'
+                reason = err
+            }
+            onRejectCallbacks.forEach(fn=>{
+                fn(reason)
+            })
+        }
+
+        try {
+            fn(resolve, reject)
+        } catch (e) {
+            reject(e)
+        }
+
+        // return this
+
+        myPromise.prototype.then = function (onFulfilled, onRejected) {
+            if (typeof onFulfilled === 'function' && state === 'fulfilled') {
+                setTimeout(() => {
+                    onFulfilled(value)
+                }, 0);
+                
+            }
+            if (typeof onRejected === 'function' && state === 'rejected') {
+                setTimeout(() => {
+                    onRejected(reason)
+                }, 0);
+                
+            }
+            if(state==='pending'){
+                onResolveCallbacks.push((value)=>{
+                    setTimeout(() => {
+                        onFulfilled(value)
+                    }, 0);
+                })
+                onRejectCallbacks.push((reason)=>{
+                    setTimeout(() => {
+                        onRejected(reason)
+                    }, 0);
+                })
+            }
+        }
+
+        myPromise.prototype.catch = function (onRejected) {
+            if (typeof onRejected === 'function' && state === 'rejected') {
+                onRejected(err)
+            }
+        }
+
+    }
+
+
+
+
+
+    let a = new myPromise((resolve, reject) => {
+        console.log('1')
+        setTimeout(function () {
+            console.log('3')
+            resolve({
+                name: 'king'
+            })
+        }, 1000)
+        // resolve({ name: 'a' })
+    })
+    a.then(res => {
+        console.log(res)
+    })
+    console.log('2')
+</script>
+
+</html>
