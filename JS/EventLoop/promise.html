@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    new Promise((resolve, reject) => {
+        console.log("promise1")                               //1.立即执行，输出promise1
+        resolve()
+    }).then(() => {                                           //2.回调函数添加到微任务队列，微1
+        console.log("then11")                                 //3.执行微1，输出then11
+        new Promise((resolve, reject) => {
+            console.log("promise2")                           //4.立即执行，输出promise2
+            resolve()
+        }).then(() => {                                       //5.回调函数添加到微任务队列，微2
+            console.log("then21")                             //7.执行微2，输出then21
+        }).then(() => {                                       //8.回调函数添加到微任务队列，微4
+            console.log("then23")                             //10.执行微4，输出then23
+        })
+    }).then(() => {                                           //6.回调函数添加到微任务队列，微3
+        console.log("then12")                                 //9.执行微3，输出then12
+    })
+</script>
+</html>

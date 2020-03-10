@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id='ipt'/>
+</body>
+<script>
+    let ipt = document.querySelector('#ipt')
+    ipt.addEventListener('input',throttle2(cb))
+    ipt.addEventListener('change',function () {
+        console.log('done')
+    })
+
+    function cb(...args){
+        console.log('changing')
+    }
+
+    //防抖
+    function debounce(fn,duration=1000){
+        let timer 
+        return function (e) {
+            const context = this;
+            const args = [...arguments]
+            if(timer!==null){
+                clearTimeout(timer)
+                timer=setTimeout(()=>{
+                    fn.apply(this,args)
+                },duration)
+            }
+        } 
+    }
+
+    //节流
+    function throttle(fn,duration=1000){
+        let pre = Date.now()
+        return function(){
+            let now = Date.now()
+            if(now-pre>=duration){
+                fn()
+                pre=Date.now()
+            }
+        }
+    }
+
+    function throttle2(fn,duration=1000){
+        let timer=null
+        return function(){
+            if(!timer){
+                timer=setTimeout(()=>{
+                    fn()
+                    timer=null
+                },duration)
+            }
+        }
+    }
+</script>
+</html>
