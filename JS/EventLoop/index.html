@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // setTimeout(() => {
+    //     console.log(1)
+    // }, 0)
+    // Promise.resolve().then(() => {
+    //     console.log(2)
+    // })
+    // console.log(3) 
+
+    // setTimeout(() => {
+    //     console.log(1)
+    // }, 0)
+    // let a = new Promise((resolve) => {
+    //     console.log(2)
+    //     resolve()
+    // }).then(() => {
+    //     console.log(3)
+    // }).then(() => {
+    //     console.log(4)
+    // })
+    // console.log(5)
+
+    // let a = new Promise((resolve) => {
+    //     console.log(2)
+    //     resolve()
+    // })
+    // a.then(() => {
+    //     console.log(3)
+    // })
+    // a.then(() => {
+    //     console.log(4)
+    // })
+
+    // new Promise((resolve, reject) => {
+    //     console.log("promise1")
+    //     resolve()
+    // }).then(() => {
+    //     console.log("then11")
+    //     new Promise((resolve, reject) => {
+    //         console.log("promise2")
+    //         resolve()
+    //     }).then(() => {
+    //         console.log("then21")
+    //     }).then(() => {
+    //         console.log("then23")
+    //     })
+    // }).then(() => {
+    //     console.log("then12")
+    // })
+
+    console.log(1);                                        //1.执行输出1
+    setTimeout(function () {                               //2.回调函数加入宏任务队列，宏1
+        console.log(2);                                                                          //8.执行宏任务1，输出2
+    }, 0);
+    new Promise(function (resolve) {
+        console.log(3);                                    //3.立即执行，输出3
+        resolve(Date.now());
+    }).then(function () {                                  //4.回调函数加入微任务队列，微1
+        console.log(4);                                    //7.执行微任务1，输出4
+    });
+    console.log(5);                                        //5.执行输出5
+    setTimeout(function () {                               //6.回调函数加入宏任务队列，宏2
+        new Promise(function (resolve) {                                                         //9.执行宏任务2
+            console.log(6);                                                                      //10.立即执行，输出6                                                                                                                                 
+            resolve(Date.now());
+        }).then(function () {                                                                    //11.回调函数加入微任务队列
+            console.log(7);                                                                      //12.执行微任务，输出7
+        });
+    }, 0);
+
+    //宏任务：整体代码，setTimeout,setInterval,I/O,UI 交互事件、postMessage、MessageChannel、setImmediate(Node.js 环境)。
+    //微任务：promise.then(),MutationObserver、 process.nextTick(Node.js 环境)。
+
+    //eventloop
+    //1.从宏任务队列中取出第一个任务开始执行（刚开始时是整体代码开始执行）
+    //2.执行过程中遇到微任务就把微任务添加到微任务队列，遇到宏任务就把宏任务添加到宏任务队列
+    //3.宏任务执行完后，查看微任务队列，如果有任务，就按顺序执行微任务，知道执行完毕
+    //4.GUI 渲染；
+    //5.从宏任务队列中取出下一个宏任务开始执行，回到第2步
+
+    
+</script>
+
+</html>
