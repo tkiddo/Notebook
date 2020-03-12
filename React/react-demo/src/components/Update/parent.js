@@ -1,5 +1,6 @@
 import React from 'react'
 import Son from './son'
+import img from '../../images/logo192.png'
 
 let i = 0
 
@@ -8,7 +9,13 @@ export default class Parent extends React.Component{
         console.log('constructor',i++)
         super(...arguments)
         this.state={
-            count:0
+            count:0,
+            obj:{
+                age:1
+            },
+            a:{
+                name:'a'
+            }
         }
     }
 
@@ -17,8 +24,11 @@ export default class Parent extends React.Component{
         return {}
     }
 
-    shouldComponentUpdate(){
+    shouldComponentUpdate(nextProps,nextState){
         console.log('shouldComponentUpdate',i++)
+        // if(nextState.count===this.state.count && nextState.obj.age===this.state.obj.age){
+        //     return false
+        // }
         return true
     }
 
@@ -36,23 +46,32 @@ export default class Parent extends React.Component{
         this.setState({
             count:2
         })
+        this.setState({
+            count:3
+        })
     }
 
     handleClick=()=>{
         this.setState({
-            count:1
+            a:{
+                name:'m'
+            },
+            obj:{
+                age:3
+            }
         })
     }
 
     render(){
         console.log('render',i++)
         // console.log('parent render')
-        const {count}=this.state
+        const {count,obj}=this.state
         return (
             <div>
                 <div>parent,{count}</div>
-                <Son count={count}></Son>
+                <Son obj={obj}></Son>
                 <button onClick={this.handleClick}>update</button>
+                <img src={img} alt=''/>
             </div>
         )
     }

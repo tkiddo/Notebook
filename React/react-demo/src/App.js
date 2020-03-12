@@ -14,7 +14,7 @@ function App() {
       <Theme />
       <Home name='home'/>
       <Parent></Parent>
-      <Hook></Hook>
+      {/* <Hook></Hook> */}
     </div>
   );
 }
