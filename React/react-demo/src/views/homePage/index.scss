@@ -1,0 +1,15 @@
+.flex{
+    display: flex;
+    position: absolute;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    .left{
+        width:200px;
+        border-right: 1px solid lightgrey;
+    }
+    .right{
+        flex:1;
+    }
+}
