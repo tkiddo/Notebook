@@ -4,7 +4,7 @@ import React from 'react'
 export const TabItem =(props)=>{
     const {active,onClick} = props
     const tabStyle = {
-        'max-width': '150px',
+        'maxWidth': '150px',
         color: active ? 'red' : 'green',
         border: active ? '1px red solid' : '0px',
     };

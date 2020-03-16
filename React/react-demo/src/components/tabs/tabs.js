@@ -1,8 +1,7 @@
-import React from 'react'
-import { TabItem } from './tabItem'
+import React,{Fragment} from 'react'
 
 
-class Tabs extends React.Component {
+export default class Tabs extends React.Component {
     state = {
         activeIndex: 0
     }

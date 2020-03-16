@@ -8,8 +8,16 @@
     .left{
         width:200px;
         border-right: 1px solid lightgrey;
+        li{
+            margin:10px 0;
+        }
     }
     .right{
         flex:1;
+        padding:50px;
     }
+}
+
+.link{
+    text-decoration: none;
 }
