@@ -8,6 +8,7 @@ const Home = function (params) {
     )
 }
 const ContextComponent = lazy(()=>import('../../components/context'))
+const ErrorTest = lazy(()=>import('../../components/errorBoundary/view'))
 export default class HomePage extends React.Component {
     render() {
         return (
@@ -20,6 +21,9 @@ export default class HomePage extends React.Component {
                         <li>
                             <Link className='link' to="/context">Context</Link>
                         </li>
+                        <li>
+                            <Link className='link' to="/errorTest">错误边界</Link>
+                        </li>
                     </ul>
                 </div>
 
@@ -28,6 +32,9 @@ export default class HomePage extends React.Component {
                         <Switch>
                             <Route path="/context">
                                 <ContextComponent />
+                            </Route>
+                            <Route path="/errorTest">
+                                <ErrorTest />
                             </Route>
                             <Route path="/">
                                 <Home />
