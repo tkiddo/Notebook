@@ -13,7 +13,7 @@
 * 1种引用数据类型
 1.Object
 
-####使用typeof判断类型
+#### 使用typeof判断类型
 typeof 返回的是数据类型的字符串表达
 ````
 typeof 3   //"number"
@@ -25,7 +25,7 @@ typeof {}  // "object"
 typeof Symbol(1)  //"symbol"
 typeof 10n //"bigint"
 ````
-####注意
+#### 注意
 + 尽管`typeof null === 'object'` 返回true，但这其实是一个公认的bug，null是基本数据类型。
 + 数据类型的字符串表达首字母小写
 +BigInt是ES10新特性，表示任意精度整数，以后的文章会有讲解
