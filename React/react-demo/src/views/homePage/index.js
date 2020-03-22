@@ -10,6 +10,9 @@ const Home = function (params) {
 const ContextComponent = lazy(()=>import('../../components/context'))
 const ErrorTest = lazy(()=>import('../../components/errorBoundary/view'))
 const RefComponent = lazy(()=>import('../../components/ref'))
+const WordsFly = lazy(()=>import('../wordsFly'))
+
+
 export default class HomePage extends React.Component {
     render() {
         return (
@@ -28,6 +31,9 @@ export default class HomePage extends React.Component {
                         <li>
                             <Link className='link' to="/ref">Ref</Link>
                         </li>
+                        <li>
+                            <Link className='link' to='/wordsFly'>弹幕</Link>
+                        </li>
                     </ul>
                 </div>
 
@@ -42,6 +48,9 @@ export default class HomePage extends React.Component {
                             </Route>
                             <Route path="/ref">
                                 <RefComponent />
+                            </Route>
+                            <Route path="/wordsFly">
+                                <WordsFly />
                             </Route>
                             <Route path="/">
                                 <Home />

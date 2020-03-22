@@ -1,0 +1,15 @@
+.word-item{
+    position: absolute;
+    animation: move 5s forwards;
+    font-size: 20px;
+}
+
+@keyframes move{
+    from{
+        right:0;
+    }
+    to{
+        right:100%;
+       display: none;
+    }
+}
