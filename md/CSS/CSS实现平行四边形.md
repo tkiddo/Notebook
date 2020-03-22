@@ -1,7 +1,7 @@
 在使用简单的skew()进行拉伸后，我们发现其容器的内容也发生了斜向变形，这是我们不希望看到的，解决这个问题的方法主要有嵌套元素法和伪元素法。
 + 方法一：嵌套元素
 我们对外层元素skew(45deg)后，再对内层元素skew(-45deg)，使内层元素变为原来的样子。
-````
+````html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +38,7 @@
 ![嵌套元素法实现平行四边形.jpg](https://upload-images.jianshu.io/upload_images/13613564-8c54f80c01296c50.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 + 伪元素法
 把与内容无关的样式应用到伪元素上，再对伪元素进行变形即可。
-````
+````css
      .button{
             width:200px;
             height: 100px;

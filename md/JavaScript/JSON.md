@@ -1,3 +1,4 @@
+## JSON
 JSON(Javascript Object Notation,Javascript 对象表示法),是JavaScript的一个严格的子集，利用了JavaScript中的一些模式来表示结构化数据结构。**JSON是一种数据格式，不是一种编程语言。**
 JSON的语法可以表示以下三种类型的值：
 + 简单值：包括字符串，数值，布尔值和`null`,但不支持`undefined`。

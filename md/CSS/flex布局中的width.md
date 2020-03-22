@@ -1,4 +1,4 @@
-####举个例子：左边元素定宽，右边元素占满余下部分
+#### 举个例子：左边元素定宽，右边元素占满余下部分
 ```` html
 <!DOCTYPE html>
 <html lang="en">
@@ -34,9 +34,9 @@
 </body>
 </html>
 ````
-####关于flex容器内元素的flex属性的解释
+#### 关于flex容器内元素的flex属性的解释
 flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
-######1.flex-grow
++ flex-grow<br>
 flex-grow定义对额外空间的占有量，默认0，即表示有多余的空间也不要。
 ```` html
 <!DOCTYPE html>
@@ -121,7 +121,7 @@ flex-grow定义对额外空间的占有量，默认0，即表示有多余的空�
 ````
 ![2.png](https://upload-images.jianshu.io/upload_images/13613564-9df7eea1d34f3ff7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-####flex-shrink
++ flex-shrink<br>
 和flex-grow相反，即当各个元素所占空间之和大于容器时，压缩每个元素的比例，默认是1.如果没有显示定义该属性，将会自动按照默认值1在所有因子相加之后计算比率来进行空间收缩。
 ```` html
 <!DOCTYPE html>
@@ -168,11 +168,10 @@ flex-grow定义对额外空间的占有量，默认0，即表示有多余的空�
 3.当给每个box设置flex-shrink依次为1,2,3时，子元素会按照比例来压缩，如图
 ![5.png](https://upload-images.jianshu.io/upload_images/13613564-80fb6f12c9f5faa8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#### flex-basis
++ flex-basis<br>
 表示在分配额外空间之前，成员占据的空间，默认值为auto，意思就是你本来占多少就是多少。但也可以自己设置长度(px)。这个值的效果就是确定在释放和分配空间的时候，你的初值是多少,即flex items 在被放进一个flex容器之前的大小
 
-###常用值
-flex：auto；  等同于 flex：1 1 auto; 意思就是占满额外空间，可缩放。
-
++ 常用值<br>
+flex：auto；  等同于 flex：1 1 auto; 意思就是占满额外空间，可缩放。<br>
 flex:none;  等同于flex：0 0 auto；  意思是不占额外空间，不可缩放。
 

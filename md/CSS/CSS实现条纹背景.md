@@ -17,7 +17,7 @@
 ![橙30%-蓝30%.jpg](https://upload-images.jianshu.io/upload_images/13613564-580862ad63b13769.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 这不就是最简单的渐变了吗？
 因为背景默认会平铺填满，所以我们可以设置`background-size`值来控制条纹宽度。由此，我们可以实现竖条纹：
-````
+````css
             width:200px;
             height:100px;
             background: linear-gradient(to right ,orange 50%,blue 50%);
@@ -25,7 +25,7 @@
 ````
 ![竖条纹.jpg](https://upload-images.jianshu.io/upload_images/13613564-2c8cfcf374055444.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 横条纹同竖条纹原理一样，就不再赘述。如果要实现45°斜条纹呢？我们同样可以使用`linear-gradient()`实现，不过相对比较麻烦。这边推荐使用`repeating-linear-gradient()`,用法同`linear-gradient()`基本相同，只是色标是无限循环的，直到填满整个背景。例如：
-````
+````css
             width:600px;
             height:300px;
             background:repeating-linear-gradient(45deg,orange,orange 15px,blue 0,blue 30px)

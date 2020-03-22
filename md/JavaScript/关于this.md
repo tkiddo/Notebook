@@ -1,6 +1,6 @@
-####this指向什么
-+ JavaScript中，任何函数本质上是通过对象来调用的，如果没有直接指定，就是window对象
-````
+#### this指向什么
++ JavaScript中，任何函数本质上是通过对象来调用的，如果没有直接指定，就是`window`对象
+````js
 function hi(){
         console.log('hi')
 }
@@ -8,8 +8,8 @@ hi()  //hi
 window.hi() //hi
 console.log(hi === window.hi) //true
 ````
-+ 每个函数内部都有一个this，指向调用函数的对象
-````
++ 每个函数内部都有一个`this`，指向调用函数的对象
+````js
 function foo(){
         console.log(this.a)
 }
@@ -22,15 +22,15 @@ let obj = {
 obj.foo() //2,this指向obj
 var c = new foo()  //undefined，this指向c
 ````
-####如何确定this的值
+#### 如何确定this的值
 this值的指向基本可以分为以下4种情况：
-+ fn():直接调用函数，此时this指向window
-+ obj.fn():通过对象调用，此时this指向当前调用该函数的对象
-+ new fn():通过new创建对象，此时this指向创建的对象
-+ fn.call(obj),fn.apply(obj):call,apply将this指向改成obj
++ `fn()`:直接调用函数，此时`this`指向`window`
++ `obj.fn()`:通过对象调用，此时this指向当前调用该函数的对象
++ `new fn()`:通过new创建对象，此时this指向创建的对象
++ `fn.call(obj)`,fn.apply(obj):call,apply将this指向改成obj
 
-####综合例子
-````
+#### 综合例子
+````js
 function Person(color){
         console.log(this)
         this.color = color
@@ -61,4 +61,3 @@ function Person(color){
         fun2()//this是window
     }
 ````
-如有错误，请批评指正。

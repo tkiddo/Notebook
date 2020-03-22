@@ -1,1 +1,3 @@
-前端笔记，包括原生JavaScript，Typescript，Vue，CSS等
+## 前端小记
+
+#### Javascript

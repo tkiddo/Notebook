@@ -1,8 +1,8 @@
-####定义
+#### 定义
 单向链表（单链表）是链表的一种，其特点是链表的链接方向是单向的，对链表的访问要通过顺序读取从头部开始；链表是使用指针进行构造的列表；又称为结点列表，因为链表是由一个个结点组装起来的；其中每个结点都有指针成员变量指向列表中的下一个结点；列表是由结点构成，head指针指向第一个成为表头结点，而终止于最后一个指向NULL的指针。
 ![单向链表图示.png](https://upload-images.jianshu.io/upload_images/13613564-2938670555b619d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-####JavaScript实现
-````
+#### JavaScript实现
+````js
     function LinkedList() {
         function Node(data) {
             this.data = data

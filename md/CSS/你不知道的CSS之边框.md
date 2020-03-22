@@ -1,6 +1,6 @@
-####1.默认情况下，背景会延伸至边框所在的区域下层。
+#### 1.默认情况下，背景会延伸至边框所在的区域下层。
 **案例**：半透明边框没有出现
-````
+````css
   .clip{
             width:100px;
             height: 100px;
@@ -17,7 +17,7 @@
 #### 2.多重边框
 **实现方法**：`box-shadow`,`outline`(仅两层边框)
 + box-shadow
-````
+````css
 box-shadow: h-shadow v-shadow blur spread color inset;
 ````
         h-shadow	必需。水平阴影的位置。允许负值。	
@@ -28,7 +28,7 @@ box-shadow: h-shadow v-shadow blur spread color inset;
         inset	可选。将外部阴影 (outset) 改为内部阴影。
 **box-shadow的好处在于可以用逗号分隔，可以创建任意数量的投影。**
 例如：
-````
+````css
 .shadow{
             width:100px;
             height: 100px;
@@ -48,7 +48,7 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 **注意**：
 1.只能用于双层边框，因为不能加逗号分隔
  2.不能贴合圆角
-````
+````css
 .outline{
             width:100px;
             height: 100px;
@@ -69,7 +69,7 @@ box-shadow: h-shadow v-shadow blur spread color inset;
 
 #### 3.边框内圆角
 **实现：**利用outline不会跟着元素的圆角走，但box-shadow会跟着圆角走来实现。
-````
+````css
 .inradius{
             width:100px;
             height: 100px;
