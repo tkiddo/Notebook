@@ -34,14 +34,22 @@
     </div>
 </body>
 <script>
-    a++;
-    console.log(a)
-    var a =3;
-    console.log(a)
+    // a++;
+    // console.log(a)
+    // var a =3;
+    // console.log(a)
+    //     console.log(1)
+    //     setTimeout(()=>{console.log(2)},1000)
+    //     setTimeout(()=>{console.log(3)},0)
+    //     console.log(4)
+    async function fn(){
         console.log(1)
-        setTimeout(()=>{console.log(2)},1000)
-        setTimeout(()=>{console.log(3)},0)
-        console.log(4)
-    
+    }
+    async function fn1(){
+        await fn()
+    }
+    console.log(2)
+    fn1()
+    console.log(3)
 </script>
 </html>
