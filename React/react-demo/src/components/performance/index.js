@@ -8,6 +8,7 @@ export default class Performance extends React.Component{
             cls1:'',
             cls2:''
         }
+        this.fileRef=React.createRef()
     }
     testMargin=()=>{
         this.setState({
@@ -19,9 +20,17 @@ export default class Performance extends React.Component{
             cls2:'by-transform'
         })
     }
+    handleChoose=(e)=>{
+        console.log(e.target.value)
+    }
+    handleUpload=()=>{
+        const data = new FormData()
+        console.log(this.fileRef.current.files)
+        data.append('file',this.fileRef.current.files[0])
+    }
     render(){
         const {cls1,cls2} = this.state
-        const arr = [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9]
+        const arr = [1,2]
         return (
             <div className={`${style['wrapper']}`}>
                 {
@@ -37,6 +46,8 @@ export default class Performance extends React.Component{
                 
                 <button onClick={this.testMargin}>testMargin</button>
                 <button onClick={this.testTransform}>testTransform</button>
+                <input type='file' onChange={this.handleChoose} name='file' ref={this.fileRef}/>
+                <button onClick={this.handleUpload}>upload</button>
             </div>
         )
     }
