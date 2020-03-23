@@ -2,6 +2,8 @@ import React, { Suspense, lazy } from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import './index.scss'
 
+import Performance from '../../components/performance'
+
 const Home = function (params) {
     return (
         <h3>Hello</h3>
@@ -32,7 +34,10 @@ export default class HomePage extends React.Component {
                             <Link className='link' to="/ref">Ref</Link>
                         </li>
                         <li>
-                            <Link className='link' to='/wordsFly'>弹幕</Link>
+                            <Link className='link' to='/wordsFly'>Animation</Link>
+                        </li>
+                        <li>
+                            <Link className='link' to='/performance'>Performance</Link>
                         </li>
                     </ul>
                 </div>
@@ -51,6 +56,9 @@ export default class HomePage extends React.Component {
                             </Route>
                             <Route path="/wordsFly">
                                 <WordsFly />
+                            </Route>
+                            <Route path="/performance">
+                                <Performance />
                             </Route>
                             <Route path="/">
                                 <Home />

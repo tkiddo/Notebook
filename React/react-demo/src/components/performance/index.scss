@@ -1,0 +1,22 @@
+.p-wrapper{
+    width:80%;
+    height: auto;
+    border:1px solid #111;
+}
+
+.common{
+    width:30px;
+    height: 30px;
+    background: skyblue;
+    margin-bottom:5px;
+}
+
+.by-margin{
+    margin-left:100%;
+    transition: margin-left 2s;
+}
+
+.by-transform{
+    transform: translate(50%);
+    transition: transform 2s;
+}
