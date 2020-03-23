@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import './index.scss'
+import style from './index.module.scss'
 
 export default class Performance extends React.Component{
     constructor(){
@@ -23,13 +23,13 @@ export default class Performance extends React.Component{
         const {cls1,cls2} = this.state
         const arr = [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9]
         return (
-            <div className='p-wrapper'>
+            <div className={`${style['wrapper']}`}>
                 {
                     arr.map((item,idx)=>{
                         return (
                             <Fragment key={idx}>
-                                <div className={`${cls1} common`}></div>
-                                <div className={`${cls2} common`}></div>
+                                <div className={`${style[cls1]} ${style['common']}`}></div>
+                                <div className={`${style[cls2]} ${style['common']}`}></div>
                             </Fragment>
                         )
                     })
