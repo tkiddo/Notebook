@@ -1,15 +1,26 @@
 .word-item{
     padding:5px;
-    background-color: lightgreen;
-    animation: move 5s forwards linear;
+    // background-color: lightgreen;
+    animation: move 8s forwards linear;
     font-size: 20px;
+    width:100%;
+    position: absolute;
+    span{
+        cursor: pointer;
+    }
+}
+
+.active{
+    color:palevioletred
 }
 
 @keyframes move{
     from{
-        transform: translateX(400px);
+        transform: translateX(100%);//21104
+        //right:-100%;//36071
     }
     to{
-        transform: translateX(0);
+        transform: translateX(-100%);
+        //right:0;
     }
 }

@@ -4,4 +4,14 @@
     margin:0 auto;
     border:1px solid lightgrey;
     position: relative;
+    overflow: hidden;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    padding:10px 0;
+    button{
+        margin:0 20px;
+    }
 }

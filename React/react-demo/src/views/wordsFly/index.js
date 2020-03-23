@@ -4,45 +4,50 @@ import "./index.scss";
 
 const data = [
   {
-    content: "awesome,hahaha",
+    content: "哈哈哈",
     top: 20
   },
-  {
-    content: "awesome,great",
-    top: 60
-  },
-  {
-    content: "awesome,hahaha",
-    top: 80
-  },
-  {
-    content: "awesome,great",
-    top: 120
-  }
+  // {
+  //   content: "awesome,great",
+  //   top: 60
+  // },
+  // {
+  //   content: "awesome,hahaha",
+  //   top: 80
+  // },
+  // {
+  //   content: "awesome,great",
+  //   top: 120
+  // }
 ];
 export default class WordsFly extends React.Component {
   constructor() {
     super(...arguments);
     this.state = {
-      list: []
+      list: [],
+      val:''
     };
   }
   handleAdd=()=>{
-      const {list} = this.state
+      const {list,val} = this.state
+      const top = Math.ceil(Math.random()*10)*30
       this.setState({
           list:[...list,{
-              content:'new line',
-              top:140
+              content:val,
+              top:top
           }]
       })
   }
-  componentDidMount() {
+  handleChange=(e)=>{
     this.setState({
-      list: data
-    });
+      val:e.target.value
+    })
+  }
+  componentDidMount() {
+    
   }
   render() {
-    const { list } = this.state;
+    const { list,val } = this.state;
     return (
       <Fragment>
         <div className="wrapper">
@@ -50,7 +55,8 @@ export default class WordsFly extends React.Component {
             return <WordItem info={item} key={idx} />;
           })}
         </div>
-        <div>
+        <div className='form'>
+            <input placeholder='message' value={val} onChange={this.handleChange}/>
             <button onClick={this.handleAdd}>add</button>
         </div>
       </Fragment>
