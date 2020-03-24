@@ -42,14 +42,31 @@
     //     setTimeout(()=>{console.log(2)},1000)
     //     setTimeout(()=>{console.log(3)},0)
     //     console.log(4)
-    async function fn(){
+    // async function fn(){
+    //     console.log(1)
+    // }
+    // async function fn1(){
+    //     await fn()
+    // }
+    // console.log(2)
+    // fn1()
+    // console.log(3)
+
+    setTimeout(()=>{
         console.log(1)
-    }
-    async function fn1(){
-        await fn()
-    }
-    console.log(2)
-    fn1()
-    console.log(3)
+        new Promise((resolve,reject)=>{
+            resolve(1)
+        }).then(()=>{
+            console.log(2)
+        })
+    })
+    setTimeout(()=>{
+        console.log(3)
+        new Promise((resolve,reject)=>{
+            resolve(1)
+        }).then(()=>{
+            console.log(4)
+        })
+    })
 </script>
 </html>

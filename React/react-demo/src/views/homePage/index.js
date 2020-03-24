@@ -4,6 +4,7 @@ import './index.scss'
 
 import Performance from '../../components/performance'
 
+
 const Home = function (params) {
     return (
         <h3>Hello</h3>
@@ -13,7 +14,7 @@ const ContextComponent = lazy(()=>import('../../components/context'))
 const ErrorTest = lazy(()=>import('../../components/errorBoundary/view'))
 const RefComponent = lazy(()=>import('../../components/ref'))
 const WordsFly = lazy(()=>import('../wordsFly'))
-
+const CirclePrize = lazy(()=>import('../circlePrize'))
 
 export default class HomePage extends React.Component {
     render() {
@@ -39,6 +40,9 @@ export default class HomePage extends React.Component {
                         <li>
                             <Link className='link' to='/performance'>Performance</Link>
                         </li>
+                        <li>
+                            <Link className='link' to='/circlePrize'>CirclePrize</Link>
+                        </li>
                     </ul>
                 </div>
 
@@ -59,6 +63,9 @@ export default class HomePage extends React.Component {
                             </Route>
                             <Route path="/performance">
                                 <Performance />
+                            </Route>
+                            <Route path="/circlePrize">
+                                <CirclePrize />
                             </Route>
                             <Route path="/">
                                 <Home />
