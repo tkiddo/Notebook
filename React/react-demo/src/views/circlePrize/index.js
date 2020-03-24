@@ -32,6 +32,7 @@ const CirclePrize = () => {
                 </div>
                 <div className={`${style['pointer']}`} onClick={()=>start()}>start</div>
             </div>
+            <div className={`${style['rect']}`} onAnimationEnd={()=>console.log('end')}></div>
         </Fragment>
     )
 }

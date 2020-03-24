@@ -77,7 +77,7 @@ export default class Performance extends React.Component{
                 }
                 {
                     modalShow && (
-                        <Modal name={selected.name} key={key}/>
+                        <Modal name={selected.name}/>
                     )
                 }
                 <button onClick={this.testMargin}>testMargin</button>

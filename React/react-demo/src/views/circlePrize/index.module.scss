@@ -97,3 +97,12 @@
     z-index: 1;
     display: block;
 }
+
+.rect{
+    margin-top: 30px;
+    width:50px;
+    height: 50px;
+    background: skyblue;
+    margin-left: 500px;
+    transition: margin-left 3s;
+}
