@@ -1,13 +1,16 @@
 import React from 'react'
-import {Tabs,TabPane} from 'tkq-react-tabs'
 
 export default class TestPage extends React.Component{
+    componentDidMount(){
+        
+    }
     render(){
+        console.log(<div className='box'>
+            <span>test</span>
+        </div>)
         return (
             <div>
-                <Tabs>
-                    <TabPane>tab1</TabPane>
-                </Tabs>
+                TestPage
             </div>
         )
     }
