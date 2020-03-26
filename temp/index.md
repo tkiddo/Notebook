@@ -13,4 +13,7 @@ https://zhuanlan.zhihu.com/p/91725031
 + key
 + webpack插件
 + redux
-+ onAnimationEnd 无效
++ onAnimationEnd 无效-----onTransitionEnd可解
+
+### 03.26
++ npm包发布流程
