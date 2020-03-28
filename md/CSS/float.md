@@ -11,10 +11,11 @@
         .wrapper{
             background: #666;
         }
-
         .box{
             width:50px;
             height: 50px;
+            line-height: 50px;
+            text-align: center;
             float:left;
         }
         .box:nth-child(odd){
@@ -27,15 +28,15 @@
 </head>
 <body>
     <div class='wrapper'>
-        <div class='box'></div>
-        <div class='box'></div>
-        <div class='box'></div>
-        <div class='box'></div>
+        <div class='box'>1</div>
+        <div class='box'>2</div>
+        <div class='box'>3</div>
+        <div class='box'>4</div>
     </div>
 </body>
 </html>
 ````
-![float]()
+![float](https://github.com/justforfunmy/Notebook/blob/master/CSS/float.jpg)
 #### 关于清除浮动
 清除浮动可以用`clear`属性，取值：
 + `none`：元素不会向下移动清除之前的浮动,即允许两边有浮动对象
@@ -46,4 +47,35 @@
 + `inline-end`：该关键字表示该元素向下移动以清除其包含块的末端的浮点，即在某个区域的右侧浮动或左侧浮动。
 
 ##### 对于CSS的清除浮动(clear)，一定要牢记：这个规则只能影响使用清除的元素本身，不能影响其他元素。
+
+那么，如果清除第二个`div`左浮动，则：
+````css
+.box:nth-child(2){
+    clear:left;
+}
+````
+![float](https://github.com/justforfunmy/Notebook/blob/master/CSS/2-clear-left.png)
+因为清除浮动只能影响元素本身，为了使第二个`div`左边没有浮动元素，又不能让第一个`div`改变位置，所以只能使自己向下移动一行。这里注意，即使给这个`div`清除右浮动，并不会有效果，因为它不能使后一个`div`改变位置，只能作用在自己身上。
+
+#### 关于父元素高度塌陷
+同上的布局，可以发现，父元素`.wrapper`虽然设置了`background`,却依然没有效果，因为浮动元素脱离了文档流，即对父元素而言，并没有元素占用了空间，所以高度无法撑开。通常有两种方法可以解决，清除浮动和BFC：
++ 清除浮动
+````css
+.wrapper::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+````
+这样做的原理相当于在最后一个子元素后边添加一个空`div`，因为清除了浮动，所以会到浮动元素的下面一行，高度就撑开了。
++ BFC
+触发BFC的方法有很多，详见我写的[BFC](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/%E5%9D%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88Block-Formatting-Context%EF%BC%8CBFC%EF%BC%89.md)章节，常见的方式可以是：
+````css
+.wrapper{
+    overflow:hidden
+}
+````
+![height](https://github.com/justforfunmy/Notebook/blob/master/CSS/height.png)
+
+
 
