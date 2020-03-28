@@ -30,6 +30,7 @@
 + [flex布局中的width](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/flex%E5%B8%83%E5%B1%80%E4%B8%AD%E7%9A%84width.md)
 + [你不知道的CSS之边框](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84CSS%E4%B9%8B%E8%BE%B9%E6%A1%86.md)
 + [BFC](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/%E5%9D%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88Block-Formatting-Context%EF%BC%8CBFC%EF%BC%89.md)
++ [浮动](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/float.md)
 
 ### HTML
 + [meta](https://github.com/justforfunmy/Notebook/blob/master/md/HTML/meta.md)
