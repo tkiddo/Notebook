@@ -14,9 +14,11 @@
             width: 100px;
             height: 100px;
             border:1px solid #111;
-            margin:20px;
+            /* margin:20px; */
             padding:20px;
-        }
+            transition:margin-left 2s ;
+            background-color: orange;
+        } 
         .a2{
             width: 100px;
             height: 100px;
@@ -31,9 +33,21 @@
     <div class='content'>
         <div class='a1'></div>
         <div class="a2"></div>
+        <button id='btn'>change</button>
     </div>
 </body>
 <script>
+    let btn = document.querySelector('#btn')
+    let a1 = document.querySelector('.a1')
+    btn.addEventListener('click',function () {
+        a1.style.marginLeft=500+'px'
+    })
+    a1.addEventListener('transitionend',function (params) {
+        console.log('end')
+    })
+
+
+    //### 习题1
     // a++;
     // console.log(a)
     // var a =3;
@@ -42,14 +56,32 @@
     //     setTimeout(()=>{console.log(2)},1000)
     //     setTimeout(()=>{console.log(3)},0)
     //     console.log(4)
-    async function fn(){
-        console.log(1)
-    }
-    async function fn1(){
-        await fn()
-    }
-    console.log(2)
-    fn1()
-    console.log(3)
+    // async function fn(){
+    //     console.log(1)
+    // }
+    // async function fn1(){
+    //     await fn()
+    // }
+    // console.log(2)
+    // fn1()
+    // console.log(3)
+
+    //### 习题二
+    // setTimeout(()=>{
+    //     console.log(1)
+    //     new Promise((resolve,reject)=>{
+    //         resolve(1)
+    //     }).then(()=>{
+    //         console.log(2)
+    //     })
+    // })
+    // setTimeout(()=>{
+    //     console.log(3)
+    //     new Promise((resolve,reject)=>{
+    //         resolve(1)
+    //     }).then(()=>{
+    //         console.log(4)
+    //     })
+    // })
 </script>
 </html>

@@ -4,6 +4,7 @@ import './index.scss'
 
 import Performance from '../../components/performance'
 
+
 const Home = function (params) {
     return (
         <h3>Hello</h3>
@@ -13,7 +14,8 @@ const ContextComponent = lazy(()=>import('../../components/context'))
 const ErrorTest = lazy(()=>import('../../components/errorBoundary/view'))
 const RefComponent = lazy(()=>import('../../components/ref'))
 const WordsFly = lazy(()=>import('../wordsFly'))
-
+const CirclePrize = lazy(()=>import('../circlePrize'))
+const CombinedComponent = lazy(()=>import('../combinedComponent'))
 
 export default class HomePage extends React.Component {
     render() {
@@ -22,7 +24,7 @@ export default class HomePage extends React.Component {
                 <div className='left'>
                     <ul>
                         <li>
-                            <Link className='link' to="/">Home</Link>
+                            <Link className='link' to="/home">Home</Link>
                         </li>
                         <li>
                             <Link className='link' to="/context">Context</Link>
@@ -38,6 +40,12 @@ export default class HomePage extends React.Component {
                         </li>
                         <li>
                             <Link className='link' to='/performance'>Performance</Link>
+                        </li>
+                        <li>
+                            <Link className='link' to='/circlePrize'>CirclePrize</Link>
+                        </li>
+                        <li>
+                            <Link className='link' to='/combinedComponent'>CombinedComponent</Link>
                         </li>
                     </ul>
                 </div>
@@ -59,6 +67,12 @@ export default class HomePage extends React.Component {
                             </Route>
                             <Route path="/performance">
                                 <Performance />
+                            </Route>
+                            <Route path="/circlePrize">
+                                <CirclePrize />
+                            </Route>
+                            <Route path="/combinedComponent">
+                                <CombinedComponent />
                             </Route>
                             <Route path="/">
                                 <Home />

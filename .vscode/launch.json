@@ -11,8 +11,13 @@
             // "url": "http://localhost:8080",
             "file": "${workspaceFolder}/JS原生实现/深浅拷贝.html"
         },
-
-    
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "React-html",
+            // "url": "http://localhost:8080",
+            "file": "${workspaceFolder}/React/react-html/index.html"
+        },
         {
             "type": "chrome",
             "request": "launch",
