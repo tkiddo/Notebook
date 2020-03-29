@@ -21,6 +21,7 @@
 + [简单实现Vue响应式系统](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F.md)
 + [闭包](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/%E9%97%AD%E5%8C%85.md)
 + [防抖和节流](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)
++ [Error](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/Error.md)
 
 ### CSS
 + [盒子模型](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.md)

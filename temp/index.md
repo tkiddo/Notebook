@@ -1,18 +1,19 @@
 https://zhuanlan.zhihu.com/p/91725031
 
+
 ### 03.22
 + react，弹幕动画
-1.https://segmentfault.com/a/1190000013045035
-2.https://segmentfault.com/a/1190000011516068
+1. https://segmentfault.com/a/1190000013045035
+2. https://segmentfault.com/a/1190000011516068
 + input ,type=file----formdata
 + react中组件css影响全局-----css module
 + chrome,performance
 
 ### 03.24
 + 转盘动画
-+ key
++ <font color=orange>key</font>
 + webpack插件
-+ redux
++ <font color=orange>redux</font>
 + onAnimationEnd 无效-----onTransitionEnd可解
 
 ### 03.26
@@ -20,5 +21,9 @@ https://zhuanlan.zhihu.com/p/91725031
 + react----jsx
 
 ### 03.27
-+ 实现一个打包工具
-+ react---render，fiberRoot
++ <font color=orange>实现一个打包工具</font>
++ <font color=orange>react---render，fiberRoot</font>
+
+### 03.28
++ MIME
++ commonjs

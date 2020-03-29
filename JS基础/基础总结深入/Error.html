@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/* error */
+// try{
+//     new Array(-1)
+// }catch(e){
+//     console.log(e) //RangeError: Invalid array length
+// }
+
+// try{
+//     let a = t+1
+// }catch(e){
+//     console.log(e) //ReferenceError: t is not defined
+// }
+
+// try{
+//     let 1a=1;
+// }catch(e){
+//     console.log(e) //Uncaught SyntaxError: Invalid or unexpected token
+// }
+function fn(a){
+    a.name='k'
+}
+try{
+    let a =1
+    a.push(1)
+}catch(e){
+    console.log(e) //TypeError: a.push is not a function
+}
+</script>
+</html>
