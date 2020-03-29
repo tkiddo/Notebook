@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function getMaxCount(str) {
+        let count = 1,
+            maxCount = count;
+        for (let i = 0; i < str.length - 1; i++) {
+            if (str[i + 1] === str[i]) {
+                count++
+            } else {
+                if (maxCount < count) {
+                    maxCount = count
+                }
+                count = 1
+            }
+        }
+        return maxCount
+    }
+    const str = '2345556677778'
+    console.log(getMaxCount(str))
+</script>
+
+</html>
