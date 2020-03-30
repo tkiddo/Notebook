@@ -10,6 +10,7 @@
 + [JavaScript数据结构：队列](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E9%98%9F%E5%88%97.md)
 + [Javascript中call，apply的实现原理](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/Javascript%E4%B8%ADcall%EF%BC%8Capply%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86.md)
 + [Promise(一)](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/Promise(%E4%B8%80).md)
++ [根据`Promises/A+`规范实现`Promise`](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/promiseA+.md)
 + [事件循环机制](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6.md)
 + [事件流](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/%E4%BA%8B%E4%BB%B6%E6%B5%81.md)
 + [作用域](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/%E4%BD%9C%E7%94%A8%E5%9F%9F.md)

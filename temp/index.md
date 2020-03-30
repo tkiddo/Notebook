@@ -27,3 +27,7 @@ https://zhuanlan.zhihu.com/p/91725031
 ### 03.28
 + MIME
 + commonjs
+
+### 03.30
++ promise A+  <font color=orange>链式原理</font>
++ 自定义库
