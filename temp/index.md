@@ -31,3 +31,8 @@ https://zhuanlan.zhihu.com/p/91725031
 ### 03.30
 + promise A+  <font color=orange>链式原理</font>
 + 自定义库
+
+### 03.31
++ generator
++ react-dom,render
++ 强制转换类型

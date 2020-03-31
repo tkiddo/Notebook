@@ -23,6 +23,7 @@
 + [闭包](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/%E9%97%AD%E5%8C%85.md)
 + [防抖和节流](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81.md)
 + [Error](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/Error.md)
++ [JS异步编程](https://github.com/justforfunmy/Notebook/blob/master/md/JavaScript/async.md)
 
 ### CSS
 + [盒子模型](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.md)

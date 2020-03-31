@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div'>div</div>
+</body>
+<script>
+    fetch('./data.json').then(res=>{
+        return res.json()
+    }).then(res=>{
+        console.log(res)
+    })
+    const div = document.getElementById('div')
+    div.addEventListener('cilck',()=>{
+        //todo...
+    })
+
+    function O(){
+        this.subs=[]
+    }
+    O.prototype.publish=function (event) {
+        this.subs.forEach(item=>{
+            if(item.event===event){
+                item.callback()
+            }
+        })
+    }
+    O.prototype.subscribe=function(event,callback){
+        this.subs.push({
+            event,callback
+        })
+    }
+    
+    function f2(){
+        console.log('f2 start')
+    }
+    function f1(){
+        setTimeout(() => {
+            //todo...
+            origin.publish('done')
+        }, 1000);
+        
+    }
+    const origin = new O()
+    origin.subscribe('done',f2)
+    f1()
+</script>
+<script src='./async.js'>
+</script>
+</html>
