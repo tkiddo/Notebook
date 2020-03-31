@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //原始类型:Number,String,Undefined,Null,Boolean,Symbol
+    //引用类型：Object
+    //原始值,对象转Boolean
+    //使用 Boolean 函数将类型转换成布尔类型，除了false,'',0,NaN,undefined,null可以转换成false,其他都转换成true
+    console.log(Boolean(''))//false
+    console.log(Boolean(0))//false
+    console.log(Boolean(NaN))//false
+    console.log(Boolean(undefined))//false
+    console.log(Boolean(null))//false
+    console.log(Boolean(false))//false
+    console.log(Boolean(' '))//true,空格不算空字符
+    console.log(Boolean())//false 注意，当 Boolean 函数不传任何参数时，会返回 false。
+    console.log(Boolean({}))//true 所有对象(包括数组和函数)都转换为 true。
+
+
+    console.log('1------------------')
+    //原始值，对象转数字
+    //#### Number()
+    //1.Boolean，true和false对应1和0
+    console.log(Number(true), Number(false))//1 0
+    //2.Null,null对应0
+    console.log(Number(null))//0
+    //3.Undefined,undefined对应NaN
+    console.log(Number(undefined))//NaN
+    //4.Number,不变
+    console.log(Number(12))//12
+    //5.String
+    //5.1 字符串只包含数字，将其转化为十进制
+    console.log(Number('0123'))//123,前导0忽略
+    //5.2 字符串中包含有效的浮点，则转换为浮点数值
+    console.log(Number('01.2'))//1.2,前导0忽略
+    //5.3 字符串中包含有效的十六进制，则转化为相同大小的十进制数
+    console.log(Number('0xF'))//15
+    //5.4 字符串为空，转化为0
+    console.log(Number(''))//0
+    //5.5 其他情况，返回NaN
+    console.log(Number('01.2.3'))//NaN
+    //一元加操作符的操作与 Number()函数相同。
+    //6.对象，先调用对象valueOf（）方法，对返回值按前面的规则转换，如果返回NaN，则调用toString()方法，再按前面的规则转换
+    console.log(Number({ a: '1' }))//NaN
+    console.log(Number(new Date()))//1585637561096,当前时间的毫秒数
+
+    console.log('2------------------')
+    //#### parseInt()
+    //用于字符串转Int
+    //忽略前导空格，如果第一个非空字符不是数字字符或者负号，返回NaN。解析直到遇到一个非数字字符为止
+    console.log(parseInt(''))//NaN
+    console.log(parseInt(' 23.5'))//23，小数点不是数字字符
+    console.log(parseInt('0xA'))//10,十六进制转十进制
+
+    //#### parseFloat()
+    //用于字符串转float
+    //始终忽略前导0，所以只能解析十进制，第一个小数点有效
+    console.log(parseFloat('0xA.5'))//0
+    console.log(parseFloat('01.2.4'))//1.2
+
+
+    console.log('3----------------')
+    // ####原始值，对象转字符串
+    //toString()
+    //数值，字符串，对象，布尔值都有toString()方法，undefined和null没有
+    const num = 10
+    console.log(num.toString())//'10'
+    console.log({ name: 'a' }.toString())//'[object Object]'
+    const bool = true
+    console.log(bool.toString())//'true'
+    const str = '232'
+    console.log(str.toString(str))//'232'
+    //const a = null
+    //console.log(a.toString())//Uncaught TypeError: Cannot read property 'toString' of null
+    //对于null和undefined，可以用String()方法
+    console.log(String(null))//'null'
+    console.log(String(undefined))//'undefined'
+    //对象转字符串，会调用对象的toString（）方法,如果返回一个原始值，就将返回值转换成字符串并返回，如果没有toString()方法或者toString()返回不是一个原始值，就用valueOf（）方法，返回值若是原始值，再
+    //对该值转化成字符串，如果不能从toString或者valueOf中获得一个原始值，则抛出错误
+    //特殊地：
+    /* 数组的 toString 方法将每个数组元素转换成一个字符串，并在元素之间添加逗号后合并成结果字符串。
+        函数的 toString 方法返回源代码字符串。
+        日期的 toString 方法返回一个可读的日期和时间字符串。
+        RegExp 的 toString 方法返回一个表示正则表达式直接量的字符串。 */
+    console.log([1, 2, 3].toString()) // 1,2,3
+    console.log((function () { var a = 1; }).toString()) // function (){var a = 1;}
+    console.log((/\d+/g).toString()) // /\d+/g
+    console.log((new Date(2010, 0, 1)).toString()) // Fri Jan 01 2010 00:00:00 GMT+0800 (CST)
+    const obj={
+        toString(){
+            return {}
+        },
+        valueOf(){
+            return {}
+        }
+    }
+    //console.log(String(obj))//Uncaught TypeError: Cannot convert object to primitive value
+    console.log('4--------------')
+
+
+    //#### 原始值转对象
+    //通过String，Number，Boolean构造函数
+    const a = 1
+    console.log(typeof a)//number
+    console.log(typeof new Number(a))//object
+
+
+
+
+</script>
+
+</html>
