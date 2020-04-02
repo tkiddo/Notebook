@@ -38,4 +38,7 @@ https://zhuanlan.zhihu.com/p/91725031
 + 强制转换类型
 
 ### 04.01
-+ canvas-game
++ canvas-game   
+
+### 04.02
++ chrome extension
