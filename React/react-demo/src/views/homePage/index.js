@@ -16,6 +16,7 @@ const RefComponent = lazy(()=>import('../../components/ref'))
 const WordsFly = lazy(()=>import('../wordsFly'))
 const CirclePrize = lazy(()=>import('../circlePrize'))
 const CombinedComponent = lazy(()=>import('../combinedComponent'))
+const AuthExample = lazy(()=>import('../accessControl'))
 
 export default class HomePage extends React.Component {
     render() {
@@ -47,6 +48,9 @@ export default class HomePage extends React.Component {
                         <li>
                             <Link className='link' to='/combinedComponent'>CombinedComponent</Link>
                         </li>
+                        <li>
+                            <Link className='link' to='/authExample'>AuthExample</Link>
+                        </li>
                     </ul>
                 </div>
 
@@ -73,6 +77,9 @@ export default class HomePage extends React.Component {
                             </Route>
                             <Route path="/combinedComponent">
                                 <CombinedComponent />
+                            </Route>
+                            <Route path="/authExample">
+                                <AuthExample />
                             </Route>
                             <Route path="/">
                                 <Home />
