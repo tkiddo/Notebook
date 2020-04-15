@@ -62,7 +62,7 @@ export default class Performance extends React.Component{
         })
     }
     render(){
-        const {cls1,cls2,modalShow,selected,arr,key} = this.state
+        const {cls1,cls2,modalShow,selected,arr} = this.state
         return (
             <div className={`${style['wrapper']}`}>
                 {

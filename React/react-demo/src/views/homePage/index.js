@@ -5,18 +5,26 @@ import './index.scss'
 import Performance from '../../components/performance'
 
 
-const Home = function (params) {
+const Home = function (props) {
     return (
-        <h3>Hello</h3>
+        <h3>{props.message}</h3>
     )
 }
-const ContextComponent = lazy(()=>import('../../components/context'))
-const ErrorTest = lazy(()=>import('../../components/errorBoundary/view'))
-const RefComponent = lazy(()=>import('../../components/ref'))
-const WordsFly = lazy(()=>import('../wordsFly'))
-const CirclePrize = lazy(()=>import('../circlePrize'))
-const CombinedComponent = lazy(()=>import('../combinedComponent'))
-const AuthExample = lazy(()=>import('../accessControl'))
+const ContextComponent = lazy(() => import('../../components/context'))
+const ErrorTest = lazy(() => import('../../components/errorBoundary/view'))
+const RefComponent = lazy(() => import('../../components/ref'))
+const WordsFly = lazy(() => import('../wordsFly'))
+const CirclePrize = lazy(() => import('../circlePrize'))
+const CombinedComponent = lazy(() => import('../combinedComponent'))
+const AuthExample = lazy(() => import('../accessControl'))
+
+const SuspeneseComponent = (Component) => {
+    return props => (
+        <Suspense fallback={<div>loading...</div>}>
+            <Component {...props} />
+        </Suspense>
+    )
+}
 
 export default class HomePage extends React.Component {
     render() {
@@ -55,38 +63,35 @@ export default class HomePage extends React.Component {
                 </div>
 
                 <div className='right'>
-                    <Suspense fallback={<div>loading...</div>}>
-                        <Switch>
-                            <Route path="/context">
-                                <ContextComponent />
-                            </Route>
-                            <Route path="/errorTest">
-                                <ErrorTest />
-                            </Route>
-                            <Route path="/ref">
-                                <RefComponent />
-                            </Route>
-                            <Route path="/wordsFly">
-                                <WordsFly />
-                            </Route>
-                            <Route path="/performance">
-                                <Performance />
-                            </Route>
-                            <Route path="/circlePrize">
-                                <CirclePrize />
-                            </Route>
-                            <Route path="/combinedComponent">
-                                <CombinedComponent />
-                            </Route>
-                            <Route path="/authExample">
-                                <AuthExample />
-                            </Route>
-                            <Route path="/">
-                                <Home />
-                            </Route>
-                        </Switch>
-                    </Suspense>
-
+                    <Switch>
+                        <Route path="/context">
+                            {SuspeneseComponent(ContextComponent)}
+                        </Route>
+                        <Route path="/errorTest">
+                            <ErrorTest />
+                        </Route>
+                        <Route path="/ref">
+                            {SuspeneseComponent(RefComponent)}
+                        </Route>
+                        <Route path="/wordsFly">
+                            {SuspeneseComponent(WordsFly)}
+                        </Route>
+                        <Route path="/performance">
+                            {SuspeneseComponent(Performance)}
+                        </Route>
+                        <Route path="/circlePrize">
+                            {SuspeneseComponent(CirclePrize)}
+                        </Route>
+                        <Route path="/combinedComponent">
+                            {SuspeneseComponent(CombinedComponent)}
+                        </Route>
+                        <Route path="/authExample">
+                            {SuspeneseComponent(AuthExample)}
+                        </Route>
+                        <Route path="/">
+                            {SuspeneseComponent(Home)({message:'hello'})}
+                        </Route>
+                    </Switch>
                 </div>
 
             </div>
