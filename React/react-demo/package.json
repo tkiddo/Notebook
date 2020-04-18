@@ -12,7 +12,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
-    "tkq-react-tabs": "^1.0.1"
+    "sliver-react-components-lib": "^1.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
