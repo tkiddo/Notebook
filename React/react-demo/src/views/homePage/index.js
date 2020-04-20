@@ -4,10 +4,12 @@ import './index.scss'
 
 import Performance from '../../components/performance'
 
-
+import MyComponent from 'sliver-react-components-lib'
 const Home = function (props) {
     return (
-        <h3>{props.message}</h3>
+        <div>
+            <MyComponent />
+        </div>
     )
 }
 const ContextComponent = lazy(() => import('../../components/context'))
