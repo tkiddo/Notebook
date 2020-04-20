@@ -4,11 +4,11 @@ import './index.scss'
 
 import Performance from '../../components/performance'
 
-import MyComponent from 'sliver-react-components-lib'
+import {Button} from 'sliver-react-components-lib'
 const Home = function (props) {
     return (
         <div>
-            <MyComponent />
+            <Button type='primary'></Button>
         </div>
     )
 }
