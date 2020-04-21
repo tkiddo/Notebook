@@ -8,7 +8,7 @@ import {Button} from 'sliver-react-components-lib'
 const Home = function (props) {
     return (
         <div>
-            <Button type='primary'></Button>
+            <Button type='primary'>primary</Button>
         </div>
     )
 }
