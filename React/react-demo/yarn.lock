@@ -9758,17 +9758,6 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
-sliver-react-components-lib@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.npm.taobao.org/sliver-react-components-lib/download/sliver-react-components-lib-1.0.8.tgz?cache=0&sync_timestamp=1587436862670&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsliver-react-components-lib%2Fdownload%2Fsliver-react-components-lib-1.0.8.tgz#5c2ede4a4e1e4d914b138b0325509fe86b88d625"
-  integrity sha1-XC7eSk4eTZFLE4sDJVCf6GuI1iU=
-  dependencies:
-    "@babel/core" "^7.9.0"
-    classnames "^2.2.6"
-    react "^16.13.1"
-    react-dom "^16.13.1"
-    styled-components "^5.1.0"
-
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.npm.taobao.org/snapdragon-node/download/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
@@ -10279,6 +10268,17 @@ svgo@^1.0.0, svgo@^1.2.2:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+swallow-lib@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/swallow-lib/-/swallow-lib-1.0.0.tgz#99210d3549e0c5d4b7b492e2c7ec0c26d6d02460"
+  integrity sha512-QcrF3qJDPwE2kc8CCTFSNpwiNzkLs9pmHTl2IbxQQyA4yftHSiXf9xZ2OuVk2Fs+8j7xby8AtSJdJtF3EJ7HFQ==
+  dependencies:
+    "@babel/core" "^7.9.0"
+    classnames "^2.2.6"
+    react "^16.13.1"
+    react-dom "^16.13.1"
+    styled-components "^5.1.0"
 
 symbol-observable@^1.2.0:
   version "1.2.0"

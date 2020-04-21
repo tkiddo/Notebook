@@ -4,7 +4,7 @@ import './index.scss'
 
 import Performance from '../../components/performance'
 
-import {Button} from 'sliver-react-components-lib'
+import {Button} from 'swallow-lib'
 const Home = function (props) {
     return (
         <div>
