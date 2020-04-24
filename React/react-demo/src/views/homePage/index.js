@@ -19,6 +19,7 @@ const WordsFly = lazy(() => import('../wordsFly'))
 const CirclePrize = lazy(() => import('../circlePrize'))
 const CombinedComponent = lazy(() => import('../combinedComponent'))
 const AuthExample = lazy(() => import('../accessControl'))
+const Charts = lazy(()=>import('../charts'))
 
 const SuspeneseComponent = (Component) => {
     return props => (
@@ -61,6 +62,9 @@ export default class HomePage extends React.Component {
                         <li>
                             <Link className='link' to='/authExample'>AuthExample</Link>
                         </li>
+                        <li>
+                            <Link className='link' to='/charts'>Charts</Link>
+                        </li>
                     </ul>
                 </div>
 
@@ -89,6 +93,9 @@ export default class HomePage extends React.Component {
                         </Route>
                         <Route path="/authExample">
                             {SuspeneseComponent(AuthExample)}
+                        </Route>
+                        <Route path="/charts">
+                            {SuspeneseComponent(Charts)}
                         </Route>
                         <Route path="/">
                             {SuspeneseComponent(Home)({message:'hello'})}
