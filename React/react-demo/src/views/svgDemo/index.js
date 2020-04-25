@@ -30,7 +30,7 @@ const SvgDemo = (props) => {
             height="30"
             stroke="black"
             fill="transparent"
-            stroke-width="5"
+            strokeWidth="5"
           />
           <rect
             x="60"
@@ -41,7 +41,7 @@ const SvgDemo = (props) => {
             height="30"
             stroke="black"
             fill="transparent"
-            stroke-width="5"
+            strokeWidth="5"
           />
 
           <circle
@@ -50,7 +50,7 @@ const SvgDemo = (props) => {
             r="20"
             stroke="red"
             fill="transparent"
-            stroke-width="5"
+            strokeWidth="5"
           />
           <ellipse
             cx="75"
@@ -59,7 +59,7 @@ const SvgDemo = (props) => {
             ry="5"
             stroke="red"
             fill="transparent"
-            stroke-width="5"
+            strokeWidth="5"
           />
 
           <line
@@ -69,28 +69,38 @@ const SvgDemo = (props) => {
             y2="150"
             stroke="orange"
             fill="transparent"
-            stroke-width="5"
+            strokeWidth="5"
           />
           <polyline
             points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145"
             stroke="orange"
             fill="transparent"
-            stroke-width="5"
+            strokeWidth="5"
           />
 
           <polygon
             points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180"
             stroke="green"
             fill="transparent"
-            stroke-width="5"
+            strokeWidth="5"
           />
 
           <path
             d="M20,230 Q40,205 50,230 T90,230"
             fill="none"
             stroke="blue"
-            stroke-width="5"
+            strokeWidth="5"
           />
+        </svg>
+      </div>
+      <div>
+        <svg
+          width="200px"
+          height="200px"
+        >
+          <path d="M10 10" />
+
+          <circle cx="10" cy="10" r="2" fill="red" />
         </svg>
       </div>
     </Fragment>
