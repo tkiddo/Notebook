@@ -20,6 +20,7 @@ const CirclePrize = lazy(() => import('../circlePrize'))
 const CombinedComponent = lazy(() => import('../combinedComponent'))
 const AuthExample = lazy(() => import('../accessControl'))
 const Charts = lazy(()=>import('../charts'))
+const SvgDemo =lazy(()=>import('../svgDemo'))
 
 const SuspeneseComponent = (Component) => {
     return props => (
@@ -65,6 +66,9 @@ export default class HomePage extends React.Component {
                         <li>
                             <Link className='link' to='/charts'>Charts</Link>
                         </li>
+                        <li>
+                            <Link className='link' to='/svg'>SvgDemo</Link>
+                        </li>
                     </ul>
                 </div>
 
@@ -96,6 +100,9 @@ export default class HomePage extends React.Component {
                         </Route>
                         <Route path="/charts">
                             {SuspeneseComponent(Charts)}
+                        </Route>
+                        <Route path="/svg">
+                            {SuspeneseComponent(SvgDemo)}
                         </Route>
                         <Route path="/">
                             {SuspeneseComponent(Home)({message:'hello'})}
