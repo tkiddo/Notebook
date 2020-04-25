@@ -4,11 +4,11 @@ import './index.scss'
 
 import Performance from '../../components/performance'
 
-import MyComponent from 'sliver-react-components-lib'
+import {Button} from 'swallow-lib'
 const Home = function (props) {
     return (
         <div>
-            <MyComponent />
+            <Button type='primary'>primary</Button>
         </div>
     )
 }
@@ -19,6 +19,8 @@ const WordsFly = lazy(() => import('../wordsFly'))
 const CirclePrize = lazy(() => import('../circlePrize'))
 const CombinedComponent = lazy(() => import('../combinedComponent'))
 const AuthExample = lazy(() => import('../accessControl'))
+const Charts = lazy(()=>import('../charts'))
+const SvgDemo =lazy(()=>import('../svgDemo'))
 
 const SuspeneseComponent = (Component) => {
     return props => (
@@ -61,6 +63,12 @@ export default class HomePage extends React.Component {
                         <li>
                             <Link className='link' to='/authExample'>AuthExample</Link>
                         </li>
+                        <li>
+                            <Link className='link' to='/charts'>Charts</Link>
+                        </li>
+                        <li>
+                            <Link className='link' to='/svg'>SvgDemo</Link>
+                        </li>
                     </ul>
                 </div>
 
@@ -89,6 +97,12 @@ export default class HomePage extends React.Component {
                         </Route>
                         <Route path="/authExample">
                             {SuspeneseComponent(AuthExample)}
+                        </Route>
+                        <Route path="/charts">
+                            {SuspeneseComponent(Charts)}
+                        </Route>
+                        <Route path="/svg">
+                            {SuspeneseComponent(SvgDemo)}
                         </Route>
                         <Route path="/">
                             {SuspeneseComponent(Home)({message:'hello'})}
