@@ -47,5 +47,5 @@
 + [0329](https://github.com/justforfunmy/Notebook/blob/master/DailyCheck/0329.md) -->
 
 ### 微信小程序
-+ [wxss中运用css变量](https://github.com/justforfunmy/Notebook/blob/master/md/var-in-css.md)
-+ [组件应用全局样式](https://github.com/justforfunmy/Notebook/blob/master/md/global-style-in-component.md)
++ [wxss中运用css变量](https://github.com/justforfunmy/Notebook/blob/master/md/wxapp/var-in-css.md)
++ [组件应用全局样式](https://github.com/justforfunmy/Notebook/blob/master/md/wxapp/global-style-in-component.md)
