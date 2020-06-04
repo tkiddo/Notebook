@@ -1,0 +1,30 @@
+.box{
+	width:400px;
+	height: 100px;
+	background: skyblue;
+	margin-top: 300px;
+}
+
+.slide-up{
+	animation: slide-up 0.5s linear forwards;
+}
+
+.slide-down{
+	animation: slide-down 0.5s linear forwards;
+}
+
+@keyframes slide-up{
+	from{
+		transform: translateY(0);
+	}to{
+		transform: translateY(-100%);
+	}
+}
+
+@keyframes slide-down{
+	from{
+		transform: translateY(-100%);
+	}to{
+		transform: translateY(0);
+	}
+}
