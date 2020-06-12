@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Chrome",
             // "url": "http://localhost:8080",
-            "file": "${workspaceFolder}/JS原生实现/深浅拷贝.html"
+            "file": "${workspaceFolder}/JS基础/JSModule/import/index.html"
         },
         {
             "type": "chrome",
