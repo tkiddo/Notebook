@@ -42,3 +42,8 @@ https://zhuanlan.zhihu.com/p/91725031
 
 ### 04.02
 + chrome extension
+
+
+### 06.13
++ nodejs文件系统
++ linux shell翻译
