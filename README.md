@@ -51,3 +51,9 @@
 ### 微信小程序
 + [wxss中运用css变量](https://github.com/justforfunmy/Notebook/blob/master/md/wxapp/var-in-css.md)
 + [组件应用全局样式](https://github.com/justforfunmy/Notebook/blob/master/md/wxapp/global-style-in-component.md)
+
+### Unix/linux
+
+翻译[tutorialpoint](https://www.tutorialspoint.com/unix/index.htm)
+
++ [开始](https://github.com/justforfunmy/Notebook/blob/master/md/Unix/getting-started.md)
