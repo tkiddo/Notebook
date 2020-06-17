@@ -92,6 +92,54 @@ passwd: all authentication tokens updated  successfully
 
 注意--我们在你输入原密码和新密码时用了星号（*）来展示位置但在系统中不是这样的。当你输入时，不会看到任何字符。
 
+#### 列出目录和文件
+
+Unix中的所有数据都组织成文件。所有文件都组织在目录中。这些目录被组织成称为文件系统的树状结构。
+
+您可以使用ls命令列出目录中所有可用的文件或目录。以下是将ls命令与-l选项一起使用的示例。
+
+````
+$ ls -l
+total 19621
+drwxrwxr-x  2 amrood amrood      4096 Dec 25 09:59 uml
+-rw-rw-r--  1 amrood amrood      5341 Dec 25 08:38 uml.jpg
+drwxr-xr-x  2 amrood amrood      4096 Feb 15  2006 univ
+drwxr-xr-x  2 root   root        4096 Dec  9  2007 urlspedia
+-rw-r--r--  1 root   root      276480 Dec  9  2007 urlspedia.tar
+drwxr-xr-x  8 root   root        4096 Nov 25  2007 usr
+-rwxr-xr-x  1 root   root        3192 Nov 25  2007 webthumb.php
+-rw-rw-r--  1 amrood amrood     20480 Nov 25  2007 webthumb.tar
+-rw-rw-r--  1 amrood amrood      5654 Aug  9  2007 yourfile.mid
+-rw-rw-r--  1 amrood amrood    166255 Aug  9  2007 yourfile.swf
+````
+在这里，以d .....开头的条目代表目录。例如，uml，univ和urlspedia是目录，其余条目是文件。
+
+#### 你是谁
+
+登录系统后，您可能会想知道：我是谁？ 找出“你是谁”的最简单方法是输入whoami命令-
+
+````
+$ whoami
+ amrood
+````
+
+在您的系统上尝试。此命令列出与当前登录名关联的帐户名。您也可以尝试由我命令谁获取有关您自己的信息。
+
+#### 谁登录了？
+
+有时您可能想知道谁同时登录了计算机。 根据您希望了解其他用户的多少，可以使用三个命令来获取此信息：用户，用户和w。
+
+````
+$ users
+ amrood bablu qadir
+
+$ who
+amrood ttyp0 Oct 8 14:10 (limbo)
+bablu  ttyp2 Oct 4 09:08 (calliope)
+qadir  ttyp4 Oct 8 12:09 (dent)
+````
+
+在系统上尝试使用w命令检查输出。这列出了与登录系统的用户相关联的信息。
 
 
 
