@@ -34,6 +34,8 @@
 + [你不知道的CSS之边框](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84CSS%E4%B9%8B%E8%BE%B9%E6%A1%86.md)
 + [BFC](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/%E5%9D%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88Block-Formatting-Context%EF%BC%8CBFC%EF%BC%89.md)
 + [浮动](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/float.md)
++ [!important无效](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/important-not-work.md)
++ [css动画保持最终状态](https://github.com/justforfunmy/Notebook/blob/master/md/CSS/animation-mode.md)
 
 ### HTML
 + [meta](https://github.com/justforfunmy/Notebook/blob/master/md/HTML/meta.md)

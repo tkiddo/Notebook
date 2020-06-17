@@ -43,6 +43,12 @@ https://zhuanlan.zhihu.com/p/91725031
 ### 04.02
 + chrome extension
 
+
+
+### 06.13
++ nodejs文件系统
++ linux shell翻译
+
 ### 0616
 
-+ https://blog.csdn.net/abs1004/article/details/78922596
++ [更改小程序原生checkbox样式](https://blog.csdn.net/abs1004/article/details/78922596)
