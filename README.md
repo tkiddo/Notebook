@@ -62,6 +62,8 @@
 
 - [开始](https://github.com/justforfunmy/Notebook/blob/master/md/Unix/getting-started.md)
 
+- [文件管理](https://github.com/justforfunmy/Notebook/blob/master/md/Unix/file-management.md)
+
 ### 工具
 
 - [Eslint+Prettier](https://github.com/justforfunmy/Notebook/blob/master/md/Tools/Eslint&Prettier.md)
