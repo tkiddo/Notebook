@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="ele"></div>
+		<ul>
+			<li>
+				<a href="pageA">A</a>
+			</li>
+			<li>
+				<span onclick="handleClick()">B</span>
+			</li>
+			<li>
+				<span onclick="goBack()">back</span>
+			</li>
+		</ul>
+	</body>
+	<script src="./index.js"></script>
+	<script>
+		const router = [
+			{
+				path: '/',
+				content: 'index',
+			},
+			{
+				path: 'pageA',
+				content: 'pageA',
+			},
+			{
+				path: 'pageB',
+				content: 'pageB',
+			},
+		]
+		const historyRouter = new HistoryRouter(router)
+		function handleClick() {
+			historyRouter.push('pageB')
+		}
+		const goBack = () => {
+			historyRouter.go(-1)
+		}
+	</script>
+</html>
