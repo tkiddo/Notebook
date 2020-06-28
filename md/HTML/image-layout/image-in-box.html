@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.float {
+				float: left;
+				margin-right: 20px;
+			}
+			.img-wrapper,
+			.img-bg {
+				width: 300px;
+				height: 200px;
+				border: 1px solid lightblue;
+				padding: 20px;
+				margin: 10px 0;
+				box-sizing: border-box;
+			}
+			.img-wrapper img {
+				width: 100%;
+				height: 100%;
+				object-fit: scale-down;
+				object-position: center;
+			}
+			.img-bg {
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-clip: content-box;
+			}
+			.img-bg:nth-child(1) {
+				background-image: url('./a.png');
+			}
+			.img-bg:nth-child(2) {
+				background-image: url('./b.png');
+			}
+			.img-bg:nth-child(3) {
+				background-image: url('./c.png');
+			}
+			.img-bg:nth-child(4) {
+				background-image: url('./d.png');
+			}
+		</style>
+	</head>
+	<body>
+		<div class="float">
+			<div class="img-wrapper">
+				<img src="./a.png" />
+			</div>
+			<div class="img-wrapper">
+				<img src="./b.png" />
+			</div>
+			<div class="img-wrapper">
+				<img src="./c.png" />
+			</div>
+			<div class="img-wrapper">
+				<img src="./d.png" />
+			</div>
+		</div>
+		<div class="float">
+			<div class="img-bg"></div>
+			<div class="img-bg"></div>
+			<div class="img-bg"></div>
+			<div class="img-bg"></div>
+		</div>
+	</body>
+</html>
