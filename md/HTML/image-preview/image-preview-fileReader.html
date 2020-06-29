@@ -45,8 +45,8 @@
 	<script>
 		const fileInput = document.getElementById('fileInput')
 		const preview = document.getElementById('preview')
-		fileInput.addEventListener('change', (e) => {
-			const file = e.target.files[0]
+		fileInput.addEventListener('change', function (e) {
+			const file = this.files[0]
 			const reader = new FileReader()
 			reader.addEventListener('load', (e) => {
 				preview.src = reader.result
