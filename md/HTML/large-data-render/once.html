@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<ul id="container"></ul>
+	</body>
+	<script>
+		let now = Date.now()
+		const total = 100000
+		let ul = document.getElementById('container')
+		for (let i = 0; i < total; i++) {
+			const li = document.createElement('li')
+			li.innerText = i
+			ul.appendChild(li)
+		}
+		console.log('JS运行时间：', Date.now() - now)
+		setTimeout(() => {
+			console.log('总运行时间：', Date.now() - now)
+		}, 0)
+
+		//在JS EventLoop中，当JS引擎所管理的执行栈中的事件以及所有微任务执行完后，才会触发渲染线程对页面进行渲染
+		//setTimeout在浏览器渲染之后执行，会放到下一个事件循环中
+		//结论:性能瓶颈不在JS，而在渲染阶段
+	</script>
+</html>
