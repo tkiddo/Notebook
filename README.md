@@ -45,6 +45,10 @@
 - [HTML 中的图片处理](https://github.com/justforfunmy/Notebook/blob/master/md/HTML/image-layout.md)
 - [图片预览](https://github.com/justforfunmy/Notebook/blob/master/md/HTML/image-preview.md)
 
+### WEB 技术
+
+- [web 缓存](https://github.com/justforfunmy/Notebook/blob/master/md/Web/cache.md)
+
 ### React
 
 - [JSX](https://github.com/justforfunmy/Notebook/blob/master/md/React/JSX.md)
