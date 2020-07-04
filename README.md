@@ -73,3 +73,19 @@
 ### 工具
 
 - [Eslint+Prettier](https://github.com/justforfunmy/Notebook/blob/master/md/Tools/Eslint&Prettier.md)
+
+### Create-React-App 文档翻译
+
+#### 入门
+
+- [入门](https://github.com/justforfunmy/Notebook/blob/master/md/CRA/getting-started.md)
+
+- [目录结构](https://github.com/justforfunmy/Notebook/blob/master/md/CRA/folder-structure.md)
+
+- [可用的脚本](https://github.com/justforfunmy/Notebook/blob/master/md/CRA/avaliable-scripts.md)
+
+- [支持的浏览器和功能](https://github.com/justforfunmy/Notebook/blob/master/md/CRA/supported-browsers.md)
+
+- [更新到新版本](https://github.com/justforfunmy/Notebook/blob/master/md/CRA/update-new-release.md)
+
+#### 开发
