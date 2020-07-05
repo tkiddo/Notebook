@@ -89,3 +89,11 @@
 - [更新到新版本](https://github.com/justforfunmy/Notebook/blob/master/md/CRA/update-new-release.md)
 
 #### 开发
+
+- [编辑器设置](https://github.com/justforfunmy/Notebook/blob/master/md/CRA/editor-setup.md)
+
+- [开发独立组件](https://github.com/justforfunmy/Notebook/blob/master/md/CRA/isolated-components.md)
+
+- [分析包大小](https://github.com/justforfunmy/Notebook/blob/master/md/CRA/bundle-size.md)
+
+- [在开发中使用 HTTPS](https://github.com/justforfunmy/Notebook/blob/master/md/CRA/https-in-components.md)
