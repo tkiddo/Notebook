@@ -1,3 +1,5 @@
-const ele = document.createElement('img')
-ele.src = '../assets/images/c.png'
-export default ele
+import img from '../assets/images/c.png'
+const ele = `<img src=${img} />`
+const wrapper = document.createElement('div')
+wrapper.innerHTML = ele
+export default wrapper

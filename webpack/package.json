@@ -2,10 +2,9 @@
 	"name": "webpack",
 	"version": "1.0.0",
 	"main": "webpack.dev.js",
-	"dependencies": {
-		
-	},
+	"dependencies": {},
 	"devDependencies": {
+		"clean-webpack-plugin": "^3.0.0",
 		"css-loader": "^3.6.0",
 		"file-loader": "^6.0.0",
 		"html-loader": "^1.1.0",
