@@ -22,6 +22,13 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 	},
 	mode: 'development',
+	//配置开发服务器
+	devServer: {
+		contentBase: path.resolve(__dirname, 'dist'),
+		//gzip压缩
+		compress: true,
+		port: 3000,
+	},
 	module: {
 		rules: [
 			{
@@ -61,20 +68,23 @@ module.exports = {
 				test: /\.html$/,
 				loader: 'html-loader',
 			},
+			{
+				exclude: /\.(css|less|scss|js|html|jpg|png|gif)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+							outputPath: 'static',
+						},
+					},
+				],
+			},
 		],
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './public/index.html',
-			//html压缩
-			minify: {
-				collapseWhitespace: true,
-				removeComments: true,
-				removeRedundantAttributes: true,
-				removeScriptTypeAttributes: true,
-				removeStyleLinkTypeAttributes: true,
-				useShortDoctype: true,
-			},
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'css/[name].css',

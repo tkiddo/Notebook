@@ -74,6 +74,8 @@
 
 - [Eslint+Prettier](https://github.com/justforfunmy/Notebook/blob/master/md/Tools/Eslint&Prettier.md)
 
+- [Webpack 开发模式配置](https://github.com/justforfunmy/Notebook/blob/master/md/Tools/webpack-dev.md)
+
 ### Create-React-App 文档翻译
 
 #### 入门

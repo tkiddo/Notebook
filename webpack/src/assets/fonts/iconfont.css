@@ -1,0 +1,33 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1594554743462'); /* IE9 */
+  src: url('iconfont.eot?t=1594554743462#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAARUAAsAAAAACZQAAAQIAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDGgqGOIU5ATYCJAMUCwwABCAFhG0HWhs/CFGUzc0i2Y/E2FbBXkqbTAYbloj+yJfhdgTf7/fbc+ULZk0tMXTxaDKdRAo0iA1CptI9ZOb9n079MlGQrkQhRp1slp98BZZblgsMG9EeQCUl3Lq1E9ZX+h/3qmaeB2w+SzZIvlrmmLYGUC70Past2BiTS9YNWEHvMHZxGQ8T6DFlKeqguLIRVArtqEA8mo19oIpZlBJS6OhbORcWiBeQ66SdkkE8ux8ffzZDBZKaQTvx9KGIhtzPhO/JUv4/r9PGgLQ/F5jLyNgACnGf67kk9TMbpHokj8xK+d5F8Jn8v+EzwZbM9h8eIckK0QJN0weJO+qyT1KTQfCZyCDxmcQg85ksuxmaig7vwSjwT9wAw0KfxVXR6uq0El+VJlgX7pkMeuumauO94rh7wjPGjzZPTjZOTTVNT7eIYqthjDyLhNFbRpya7J6caZx61TT9pkV8PSCI6S0PteUmd3QJJqS1/dRoojC/5Xhv1d09U2m0KLIt2Y3DYnGL1uNTTY1ZLUNTRe1cJ8Tevl/BhzScfL6g4cpab+EayPjrWj2lk3vJdIJ/pT/Xe25ScvcN2n3iinDpGBy/7rnZzx+/7Ll6kjpxQ7hmz0P1eFGG1mNezKxU01t9vFEY7wvP6bj0hH/qee5+9j+Kb/JEvc6x8F9BtLVRBUJbZLXh4qcXDDM/ycmm0FX4xc6nXn/6ZPm60BaiNvYgaMR3IKG7e01s49bYqzRdmFHDArNnvreqiQ9ctGHDgQ8BqtpQzXzuXNFBR37f3w/29s7mFn3saIFX67aqgrQVK7o8PYg+0X3j2/VmSM1gYNiQa16EcgHewMDT2bPvDh/xy/ltV47+ni3Udk8vvb7werZfBBG5BZx93pvLdzLxgkG/2Nl7liA+Ip5lhivOJSTrXlhFi+W39NHl/0lTek4KvpcZfV8Hefen5/d4Zf5Sae8x6iMudCXatymDPAOgIwne4GuS1hwrslyz1iJ2mhIxWp34blIJPXqABgZGvO9HN147RejEpAwkbZOQdSxgC3EDql5b0NKxDT3WlVzeaxRHKooaWLMVQBhyF5IBr5ANGcIW4juoJvyAlqGQQo/r8Lthr6Uwawo43EcwjfpXI/MA62AMO9F49fXYuNzWx0XlLrkZcy5zHMVFxybzJdiBuT5Oca0wxhPCIIZj7agYPA7bbCxycqwFD5BoEyHO9JgYJu+NogdYO2js42B9CIyG9FsNMRvAcmDs+YQm9f71MKPlbPpwJV0l/mYYx8W8cyROtNga2BKNo1bXuezusoJRPIJg8GEMDssOKYYuzKZnWIgzfz8LbAARzdQi5ZQuBk1j6mqix9fZr7H0t+6p7V1DQkkpGSWnFNDd+egygl2nJfHH4qhAvDsBAA==') format('woff2'),
+  url('iconfont.woff?t=1594554743462') format('woff'),
+  url('iconfont.ttf?t=1594554743462') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1594554743462#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon-test:before {
+  content: "\e633";
+}
+
+.icon-icon-test1:before {
+  content: "\e634";
+}
+
+.icon-icon-test2:before {
+  content: "\e635";
+}
+
+.icon-icon-test3:before {
+  content: "\e636";
+}
+
