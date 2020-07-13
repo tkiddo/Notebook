@@ -21,8 +21,9 @@ module.exports = {
     // 启用hmr
     hot: true,
   },
-  // 配置source map
-  devtool: 'inline-source-map',
+  // 配置source map,提示错误代码的准确信息
+  // eval-source-map / eval-cheap-module-source-map
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {

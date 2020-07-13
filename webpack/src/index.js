@@ -1,11 +1,15 @@
-import com from './com';
 import ImageCom from './img-com';
 import './assets/fonts/iconfont.css';
 
 // eslint-disable-next-line no-undef
 const app = document.getElementById('app');
 
-app.appendChild(com());
+import(/* webpackChunkName:'com' */ './com/index.js')
+  .then((res) => {
+    console.log(res);
+  })
+  .catch(() => {});
+
 app.appendChild(ImageCom);
 
 const span = '<span class="iconfont icon-icon-test2" ></span>';
@@ -20,10 +24,11 @@ const promise = new Promise((resolve, reject) => {
     resolve(111);
   }, 1000);
 });
-console.log(promise);
+// eslint-disable-next-line no-console
+console.log(promise)();
 
 if (module.hot) {
   module.hot.accept('./com/index.js', () => {
-    com();
+    console.log(1);
   });
 }

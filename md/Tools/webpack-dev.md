@@ -76,44 +76,6 @@ module: {
 	},
 ```
 
-4. 分离 css 资源为单独文件
-
-以上的处理会把 css 样式以`style节点`的形式加入到 html 标签中，实际开发中可能需要将 css 分离成单独文件，需要用到`mini-css-extract-plugin`插件
-
-```
-yarn add mini-css-extract-plugin --dev
-```
-
-```js
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-```
-
-用法:将所有`style-loader`替换成`MiniCssExtractPlugin.loader`,并在`plugins`中添加该插件
-
-```js
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
-module.exports = {
-	module: {
-		rules: [
-			{
-				test: /\.css$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader'],
-			},
-			{
-				test: /\.less$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
-			},
-			{
-				test: /\.s[ac]ss$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-			},
-		],
-	},
-	plugins: [new MiniCssExtractPlugin()],
-}
-```
-
 ## 处理图片资源
 
 `url-loader`
@@ -126,28 +88,28 @@ yarn add file-loader url-loader --dev
 
 ```js
 module: {
-	rules: [
-		{
-			test: /\.(png|jpg|gif|svg)$/,
-			use: [
-				{
-					loader: 'url-loader',
-					options: {
-						name(resourcePath, resourceQuery) {
-							//文件命名
-							if (process.env.NODE_ENV === 'development') {
-								return '[path][name].[ext]'
-							}
+  rules: [
+    {
+      test: /\.(png|jpg|gif|svg)$/,
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            name(resourcePath, resourceQuery) {
+              //文件命名
+              if (process.env.NODE_ENV === 'development') {
+                return '[path][name].[ext]';
+              }
 
-							return '[contenthash].[ext]'
-						},
-						//目标文件夹
-						outputPath: 'media',
-					},
-				},
-			],
-		},
-	]
+              return '[contenthash].[ext]';
+            },
+            //目标文件夹
+            outputPath: 'media',
+          },
+        },
+      ],
+    },
+  ];
 }
 ```
 
@@ -194,13 +156,13 @@ yarn add webpack-dev-server --dev
 
 ```js
 module.exports = {
-	devServer: {
-		contentBase: path.resolve(__dirname, 'dist'),
-		//gzip压缩
-		compress: true,
-		port: 3000,
-	},
-}
+  devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    //gzip压缩
+    compress: true,
+    port: 3000,
+  },
+};
 ```
 
 ```json
@@ -213,98 +175,84 @@ module.exports = {
 ## 开发模式基本配置
 
 ```js
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const CssCommonLoader = [
-	{
-		loader: MiniCssExtractPlugin.loader,
-		options: {
-			//配置路径寻找从当前目录的上一级开始
-			publicPath: '../',
-			hmr: process.env.NODE_ENV === 'development',
-		},
-	},
-	'css-loader',
-]
+const CssCommonLoader = ['style-loader', 'css-loader'];
 
 module.exports = {
-	entry: './src/index.js',
-	output: {
-		filename: 'js/bundle.js',
-		path: path.resolve(__dirname, 'dist'),
-	},
-	mode: 'development',
-	//配置开发服务器
-	devServer: {
-		contentBase: path.resolve(__dirname, 'dist'),
-		//gzip压缩
-		compress: true,
-		port: 3000,
-	},
-	module: {
-		rules: [
-			{
-				test: /\.css$/,
-				use: [...CssCommonLoader],
-			},
-			{
-				test: /\.less$/,
-				use: [...CssCommonLoader, 'less-loader'],
-			},
-			{
-				test: /\.s[ac]ss$/,
-				use: [...CssCommonLoader, 'sass-loader'],
-			},
-			{
-				test: /\.(png|jpg|gif|svg)$/,
-				use: [
-					{
-						loader: 'url-loader',
-						options: {
-							name(resourcePath, resourceQuery) {
-								// `resourcePath` - `/absolute/path/to/file.js`
-								// `resourceQuery` - `?foo=bar`
+  entry: './src/index.js',
+  output: {
+    filename: 'js/bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  mode: 'development',
+  //配置开发服务器
+  devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    //gzip压缩
+    compress: true,
+    port: 3000,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [...CssCommonLoader],
+      },
+      {
+        test: /\.less$/,
+        use: [...CssCommonLoader, 'less-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: [...CssCommonLoader, 'sass-loader'],
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name(resourcePath, resourceQuery) {
+                // `resourcePath` - `/absolute/path/to/file.js`
+                // `resourceQuery` - `?foo=bar`
 
-								if (process.env.NODE_ENV === 'development') {
-									return '[path][name].[ext]'
-								}
-								return '[contenthash].[ext]'
-							},
-							outputPath: 'media',
-							limit: 8 * 1024,
-						},
-					},
-				],
-			},
-			{
-				test: /\.html$/,
-				loader: 'html-loader',
-			},
-			{
-				exclude: /\.(css|less|scss|js|html|jpg|png|gif)$/,
-				use: [
-					{
-						loader: 'file-loader',
-						options: {
-							name: '[name].[ext]',
-							outputPath: 'static',
-						},
-					},
-				],
-			},
-		],
-	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			template: './public/index.html',
-		}),
-		new MiniCssExtractPlugin({
-			filename: 'css/[name].css',
-		}),
-		new CleanWebpackPlugin(),
-	],
-}
+                if (process.env.NODE_ENV === 'development') {
+                  return '[path][name].[ext]';
+                }
+                return '[contenthash].[ext]';
+              },
+              outputPath: 'media',
+              limit: 8 * 1024,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+      },
+      {
+        exclude: /\.(css|less|scss|js|html|jpg|png|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'static',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+    new CleanWebpackPlugin(),
+  ],
+};
 ```

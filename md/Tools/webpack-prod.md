@@ -2,7 +2,41 @@
 
 ## 提取 css 为单独文件
 
-用到`mini-css-extract-plugin`插件，在之前开发模式已经讲过
+`style-loader`会把 css 样式以`style节点`的形式加入到 html 标签中，实际开发中可能需要将 css 分离成单独文件，需要用到`mini-css-extract-plugin`插件
+
+```
+yarn add mini-css-extract-plugin --dev
+```
+
+```js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+```
+
+用法:将所有`style-loader`替换成`MiniCssExtractPlugin.loader`,并在`plugins`中添加该插件
+
+```js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.less$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
+  plugins: [new MiniCssExtractPlugin()],
+};
+```
 
 ## css 兼容性处理
 

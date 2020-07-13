@@ -6,6 +6,7 @@ const ele = `<img src=${img} class="img" alt="no"/>`;
 const wrapper = document.createElement('div');
 wrapper.innerHTML = ele;
 wrapper.addEventListener('click', () => {
+  // eslint-disable-next-line no-console
   console.log('ascssssss');
 });
 export default wrapper;
