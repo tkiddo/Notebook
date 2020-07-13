@@ -1,10 +1,11 @@
-import './index.less'
-import './index.scss'
-import './index.css'
+import './index.less';
+import './index.scss';
+import './index.css';
 
-export default function () {
-	const ele = document.createElement('div')
-	ele.innerText = 'component demo'
-	ele.classList.add('container')
-	return ele
+export default function com() {
+  // eslint-disable-next-line no-undef
+  const ele = document.createElement('div');
+  ele.innerText = 'component demo';
+  ele.classList.add('container');
+  return ele;
 }
