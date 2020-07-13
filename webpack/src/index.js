@@ -1,12 +1,12 @@
 import com from './com';
-// import ImageCom from './img-com';
+import ImageCom from './img-com';
 import './assets/fonts/iconfont.css';
 
 // eslint-disable-next-line no-undef
 const app = document.getElementById('app');
 
 app.appendChild(com());
-// app.appendChild(ImageCom)
+app.appendChild(ImageCom);
 
 const span = '<span class="iconfont icon-icon-test2" ></span>';
 // eslint-disable-next-line no-undef
@@ -21,3 +21,9 @@ const promise = new Promise((resolve, reject) => {
   }, 1000);
 });
 console.log(promise);
+
+if (module.hot) {
+  module.hot.accept('./com/index.js', () => {
+    com();
+  });
+}

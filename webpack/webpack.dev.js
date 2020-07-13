@@ -1,19 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const CssCommonLoader = [
-  {
-    loader: MiniCssExtractPlugin.loader,
-    options: {
-      // 配置路径寻找从当前目录的上一级开始
-      publicPath: '../',
-      hmr: process.env.NODE_ENV === 'development',
-    },
-  },
-  'css-loader',
-];
+const CssCommonLoader = ['style-loader', 'css-loader'];
 
 module.exports = {
   entry: './src/index.js',
@@ -29,7 +18,11 @@ module.exports = {
     compress: true,
     port: 3000,
     open: true,
+    // 启用hmr
+    hot: true,
   },
+  // 配置source map
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -87,9 +80,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
     }),
     new CleanWebpackPlugin(),
   ],

@@ -5,6 +5,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PostcssPresetEnv = require('postcss-preset-env');
 
+// 决定browerslist用哪个模式
+process.env.NODE_ENV = 'production';
+
 const CssCommonLoader = [
   {
     loader: MiniCssExtractPlugin.loader,

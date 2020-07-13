@@ -76,6 +76,8 @@
 
 - [Webpack 开发模式配置](https://github.com/justforfunmy/Notebook/blob/master/md/Tools/webpack-dev.md)
 
+- [Webpack 生产模式配置](https://github.com/justforfunmy/Notebook/blob/master/md/Tools/webpack-prod.md)
+
 ### Create-React-App 文档翻译
 
 #### 入门
