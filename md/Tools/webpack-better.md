@@ -53,3 +53,13 @@ sideEffets:false
 ```js
 plugins: ['@babel/plugin-syntax-dynamic-import'],
 ```
+
+## PWA
+
+serviceWorker
+
+## 多进程打包
+
+thread-loader
+
+## externals

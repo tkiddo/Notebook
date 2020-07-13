@@ -59,6 +59,9 @@
           "devDependencies": true
         }
       ]
+    },
+    "env": {
+      "browser": true
     }
   },
   "sideEffects": [
