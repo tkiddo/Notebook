@@ -1,7 +1,7 @@
 {
   "name": "webpack",
   "version": "1.0.0",
-  "main": "webpack.dev.js",
+  "main": "index.js",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.10.4",
