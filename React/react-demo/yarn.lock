@@ -3787,9 +3787,9 @@ decamelize@^1.1.1, decamelize@^1.1.2, decamelize@^1.2.0:
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npm.taobao.org/decode-uri-component/download/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 deep-equal@^1.0.1:
   version "1.1.1"
@@ -10522,10 +10522,10 @@ svgo@^1.0.0, svgo@^1.2.2:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-swallow-lib@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/swallow-lib/-/swallow-lib-1.0.0.tgz#99210d3549e0c5d4b7b492e2c7ec0c26d6d02460"
-  integrity sha512-QcrF3qJDPwE2kc8CCTFSNpwiNzkLs9pmHTl2IbxQQyA4yftHSiXf9xZ2OuVk2Fs+8j7xby8AtSJdJtF3EJ7HFQ==
+swallow-lib@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/swallow-lib/-/swallow-lib-1.0.1.tgz#15626b94ca66ecf1bf0e8971e4dffe352c982204"
+  integrity sha512-kGWYwQcxP5HVIBk+xzHzr9nqTpRNtsuWwNrdnT3STqB8PEpKBv2CTKSYiQi5zgYqtZpAPHva2mxO93lmky3NdQ==
   dependencies:
     "@babel/core" "^7.9.0"
     classnames "^2.2.6"
